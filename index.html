@@ -4,211 +4,149 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Paty &amp; Arturo · Nos casamos</title>
-<meta name="theme-color" content="#F6EDE6">
+<meta name="theme-color" content="#8B162B">
 <meta name="description" content="La boda de Paty y Arturo. Nuestra historia, cómo llegar, playlist y deseos.">
-<link rel="manifest" href="manifest.json">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Paty & Arturo · Nos casamos">
 <meta property="og:description" content="Nuestra historia, cómo llegar, playlist y deseos.">
 <meta property="og:image" content="og.png">
-<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mulish:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;800&family=Outfit:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#F6EDE6; --card:#FBF6F0; --pink:#EFCCD3;
-  --magenta:#C4297B; --crimson:#B81E36; --wine:#781011;
-  --olive:#728043; --coral:#E8542F; --ink:#3a2226; --muted:#8a6a6a;
-  --line:#B81E36;
-  --serif:"Cormorant Garamond",Georgia,serif;
-  --sans:"Mulish",system-ui,sans-serif;
-  --hand:"Caveat",cursive;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--cream); color:var(--ink);
-  font-family:var(--sans); font-size:16px; line-height:1.6;
-  -webkit-font-smoothing:antialiased; overflow-x:hidden;
-}
-img{max-width:100%;display:block}
-a{color:var(--magenta)}
+  :root{
+    --fondo:#8B162B; --fondo-hondo:#6E1020;
+    --crema:#F6F3CF; --tinta:#3d221f;
+    --sienna:#F37521; --rosa:#F9B6B8; --pera:#C6B63B; --azul:#BAD2E8; --wine:#8B162B;
+    --linea:rgba(61,34,31,.16);
+    --display:"Baloo 2","Trebuchet MS",cursive;
+    --texto:"Outfit","Segoe UI",system-ui,sans-serif;
+    --util:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--texto);
+    font-weight:300;font-size:16px;line-height:1.55;position:relative;overflow-x:hidden;min-height:100vh}
+  img{max-width:100%;display:block}
 
-/* ---------- fondo de flores (y perritos por pestaña) ---------- */
-#bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-#bg img{position:absolute;opacity:.16;filter:saturate(.9)}
-#bg .paw{opacity:0;transition:opacity .6s ease}
-body[data-tab="deseos"] #bg .paw,
-body[data-tab="llegar"] #bg .paw{opacity:.9}
-body[data-tab="deseos"] #bg .flo,
-body[data-tab="llegar"] #bg .flo{opacity:.10}
+  .jardin{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .jardin img{position:absolute;filter:drop-shadow(0 3px 5px rgba(0,0,0,.22))}
+  .jardin .flo{opacity:.9}
+  .jardin .paw{opacity:0;transition:opacity .5s ease}
+  body[data-p="deseos"] .jardin .paw,
+  body[data-p="llegar"] .jardin .paw,
+  body[data-p="vestuario"] .jardin .paw{opacity:.98}
+  body[data-p="deseos"] .jardin .flo,
+  body[data-p="llegar"] .jardin .flo,
+  body[data-p="vestuario"] .jardin .flo{opacity:.4}
 
-/* ---------- barra superior ---------- */
-header{
-  position:sticky;top:0;z-index:20;
-  background:rgba(246,237,230,.92); backdrop-filter:blur(8px);
-  border-bottom:1px solid rgba(184,30,54,.18);
-}
-.bar{display:flex;align-items:center;gap:.6rem;padding:.55rem .9rem;max-width:720px;margin:0 auto}
-.mono{width:34px;height:34px;flex:0 0 34px}
-.brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--wine);letter-spacing:.02em;white-space:nowrap}
-nav{max-width:720px;margin:0 auto;display:flex;gap:.4rem;overflow-x:auto;padding:0 .7rem .55rem;scrollbar-width:none}
-nav::-webkit-scrollbar{display:none}
-nav button{
-  flex:0 0 auto;border:1px solid rgba(184,30,54,.35);background:transparent;
-  color:var(--crimson);font-family:var(--sans);font-weight:600;font-size:.82rem;
-  padding:.34rem .8rem;border-radius:999px;cursor:pointer;transition:.18s;white-space:nowrap;
-}
-nav button:hover{background:rgba(196,41,120,.08)}
-nav button.on{background:var(--magenta);border-color:var(--magenta);color:#fff}
+  .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:1}
 
-/* ---------- lienzo ---------- */
-main{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:1.1rem .95rem 5rem}
-.tab{display:none;animation:fade .5s ease}
-.tab.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .nav{position:sticky;top:0;z-index:20;background:rgba(139,22,43,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.14)}
+  .nav-top{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:9px 20px 2px}
+  .logo{font-family:var(--display);font-weight:800;font-size:18px;color:var(--crema);background:none;border:none;cursor:pointer;padding:0}
+  .marca{margin-left:auto;font-family:var(--util);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,243,207,.8)}
+  .nav-inner{max-width:560px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
+  .nav-inner::-webkit-scrollbar{display:none}
+  .nav-inner button{flex:0 0 auto;font-family:var(--util);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--tinta);border:none;border-radius:999px;padding:7px 13px;background:var(--crema);cursor:pointer;opacity:.75;transition:.15s}
+  .nav-inner button:hover{opacity:.92}
+  .nav-inner button.on{opacity:1;background:var(--sienna);color:#fff;font-weight:700}
 
-h2.title{font-family:var(--serif);font-weight:600;color:var(--magenta);
-  font-size:2rem;text-align:center;margin:.2rem 0 .1rem;line-height:1.05}
-.eyebrow{text-align:center;font-family:var(--sans);letter-spacing:.28em;
-  text-transform:uppercase;font-size:.68rem;color:var(--olive);font-weight:700;margin-bottom:.2rem}
-.lead{text-align:center;color:var(--muted);max-width:34rem;margin:.4rem auto 1.4rem;font-size:1rem}
+  .pantalla{display:none;animation:sube .45s ease}
+  .pantalla.on{display:block}
+  @keyframes sube{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* marco dibujado a mano estilo invitación */
-.frame{position:relative;background:var(--card);border-radius:10px;padding:1.4rem 1.15rem;
-  box-shadow:0 10px 30px rgba(120,16,17,.08)}
-.frame::before{content:"";position:absolute;inset:9px;border:1.5px solid var(--crimson);
-  border-radius:6px;pointer-events:none;opacity:.65}
-.frame::after{content:"";position:absolute;inset:14px;border:1px solid var(--crimson);
-  border-radius:4px;pointer-events:none;opacity:.3}
+  .eyebrow{font-family:var(--util);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rosa);text-align:center;margin:22px 0 4px}
+  h2{font-family:var(--display);font-weight:800;color:var(--crema);text-align:center;font-size:30px;line-height:1.05;margin:0 0 6px;text-shadow:0 2px 0 rgba(0,0,0,.25)}
+  .lead{text-align:center;color:var(--crema);opacity:.94;max-width:32rem;margin:0 auto 18px;font-weight:300}
 
-/* ---------- inicio ---------- */
-.hero{text-align:center}
-.arch{width:min(320px,78%);margin:0 auto 1.1rem;position:relative}
-.arch .ph{border-radius:170px 170px 14px 14px;overflow:hidden;
-  border:3px solid var(--card);box-shadow:0 12px 30px rgba(120,16,17,.18);aspect-ratio:3/3.6}
-.arch .ph img{width:100%;height:100%;object-fit:cover}
-.hero .names{font-family:var(--serif);font-weight:600;color:var(--magenta);
-  font-size:3.1rem;line-height:.98;margin:.2rem 0}
-.hero .amp{color:var(--coral);font-style:italic}
-.sacred{width:64px;margin:.7rem auto .5rem}
-.date{font-family:var(--serif);font-size:1.5rem;color:var(--wine);letter-spacing:.04em;margin:.2rem 0}
-.place{color:var(--muted);font-style:italic;font-family:var(--serif);font-size:1.15rem}
+  .card{background:var(--crema);border-radius:18px;padding:20px 18px;box-shadow:0 12px 28px rgba(0,0,0,.28);margin:0 0 16px}
+  .card h3{font-family:var(--display);font-weight:600;color:var(--wine);font-size:20px;margin:0 0 6px}
+  .tag{display:inline-block;font-family:var(--util);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--pera);color:#3d3210;padding:4px 9px;border-radius:999px;margin-bottom:8px}
+  .tag.rojo{background:var(--wine);color:var(--crema)}
 
-.count{display:flex;justify-content:center;gap:.5rem;margin:1.2rem 0 .4rem;flex-wrap:wrap}
-.count div{background:var(--pink);border-radius:12px;min-width:64px;padding:.5rem .3rem;color:var(--wine)}
-.count b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1}
-.count span{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:15px;border:none;cursor:pointer;padding:11px 18px;border-radius:999px;text-decoration:none;transition:.15s}
+  .btn.mag{background:var(--sienna);color:#fff} .btn.mag:hover{filter:brightness(1.06)}
+  .btn.oli{background:var(--pera);color:#3d3210} .btn.oli:hover{filter:brightness(1.04)}
+  .btn.line{background:transparent;color:var(--wine);border:2px solid var(--wine)}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
 
-.btns{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1.1rem}
-.btn{display:inline-flex;align-items:center;gap:.45rem;border:none;cursor:pointer;
-  font-family:var(--sans);font-weight:700;font-size:.9rem;padding:.65rem 1.1rem;border-radius:999px;
-  text-decoration:none;transition:.18s}
-.btn.solid{background:var(--magenta);color:#fff}
-.btn.solid:hover{background:#a81f68}
-.btn.ghost{background:transparent;color:var(--crimson);border:1.5px solid var(--crimson)}
-.btn.ghost:hover{background:rgba(184,30,54,.08)}
-.btn.olive{background:var(--olive);color:#fff}
-.btn.olive:hover{filter:brightness(.94)}
+  .hero{text-align:center;padding-top:10px}
+  .portada{width:min(300px,82%);margin:0 auto 14px;background:#fff;padding:12px 12px 0;border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.34);transform:rotate(-2deg)}
+  .portada img{width:100%;aspect-ratio:3/3.4;object-fit:cover}
+  .portada .pcap{font-family:var(--display);font-weight:600;color:var(--tinta);padding:9px 4px 12px;font-size:15px}
+  .names{font-family:var(--display);font-weight:800;color:var(--crema);font-size:44px;line-height:.98;margin:6px 0 2px;text-shadow:0 3px 0 rgba(0,0,0,.3)}
+  .names .amp{color:var(--sienna)}
+  .fecha{font-family:var(--display);font-weight:600;color:var(--crema);font-size:22px;margin:2px 0}
+  .lugar{color:var(--crema);opacity:.9;font-weight:300}
+  .count{display:flex;justify-content:center;gap:8px;margin:18px 0 4px;flex-wrap:wrap}
+  .count div{background:var(--crema);border-radius:14px;min-width:62px;padding:9px 6px;color:var(--wine)}
+  .count b{display:block;font-family:var(--display);font-weight:800;font-size:26px;line-height:1}
+  .count span{font-family:var(--util);font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
 
-/* ---------- historia (timeline) ---------- */
-.story{position:relative;padding-left:26px}
-.story::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
-  background:linear-gradient(var(--pink),var(--crimson),var(--pink))}
-.node{position:relative;margin:0 0 1.6rem}
-.node::before{content:"";position:absolute;left:-24px;top:6px;width:13px;height:13px;border-radius:50%;
-  background:var(--coral);border:2px solid var(--card);box-shadow:0 0 0 2px var(--crimson)}
-.node .pics{display:flex;gap:.5rem;flex-wrap:wrap}
-.node .pics img{flex:1 1 46%;min-width:140px;border-radius:10px;object-fit:cover;
-  border:3px solid var(--card);box-shadow:0 8px 20px rgba(120,16,17,.12)}
-.node .pics.one img{flex:1 1 100%;max-height:440px}
-.cap{font-family:var(--hand);font-size:1.32rem;line-height:1.35;color:var(--wine);margin:.55rem 0 0}
-.note-card{background:var(--pink);border-radius:12px;padding:1rem 1.1rem;font-family:var(--hand);
-  font-size:1.42rem;color:var(--wine);line-height:1.35;text-align:center}
-.pending{background:repeating-linear-gradient(45deg,#f7e7dd,#f7e7dd 12px,#f2ddd0 12px,#f2ddd0 24px);
-  border:2px dashed var(--crimson);border-radius:12px;padding:1.4rem;text-align:center;color:var(--muted)}
-.pending .pill{display:inline-block;background:var(--card);border-radius:999px;padding:.2rem .7rem;
-  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--crimson);margin-bottom:.5rem;font-weight:700}
+  .album{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:8px}
+  .polaroid{background:#fff;padding:12px 12px 0;border-radius:3px;box-shadow:0 12px 26px rgba(0,0,0,.3);width:min(320px,92%);transform:rotate(var(--rot,-2deg))}
+  .polaroid:nth-child(even){--rot:2deg}
+  .polaroid:nth-child(3n){--rot:-3deg}
+  .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .polaroid.tall img{aspect-ratio:3/4}
+  .polaroid .cap{font-family:var(--display);font-weight:500;color:var(--tinta);text-align:center;padding:11px 6px 15px;font-size:15px;line-height:1.3}
+  .duo{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;width:min(360px,96%)}
+  .duo .polaroid{width:calc(50% - 8px);min-width:150px;transform:rotate(var(--rot,-3deg))}
+  .duo .polaroid:nth-child(2){--rot:3deg}
+  .duo-cap{width:min(360px,92%);font-family:var(--display);font-weight:500;color:var(--crema);text-align:center;margin-top:-14px;font-size:15px}
+  .interludio{background:var(--crema);border-radius:16px;padding:16px 18px;width:min(360px,94%);text-align:center;font-family:var(--display);font-weight:500;color:var(--wine);font-size:16px;line-height:1.35;box-shadow:0 10px 24px rgba(0,0,0,.24)}
+  .polaroid.vacio .hueco{width:100%;aspect-ratio:1/1;border:2px dashed var(--sienna);border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--sienna);font-family:var(--util);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:14px}
 
-/* ---------- bloques genéricos ---------- */
-.info{margin:0 0 1rem}
-.info h3{font-family:var(--serif);color:var(--crimson);font-size:1.35rem;margin:.2rem 0 .3rem}
-.tag{display:inline-block;background:var(--olive);color:#fff;font-size:.68rem;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;margin-bottom:.4rem}
+  .corcho{background:url('img/corcho.jpg') center/cover, #c99a5b;border-radius:10px;padding:20px 14px;min-height:240px;box-shadow:0 12px 26px rgba(0,0,0,.3)}
+  .notas{column-count:2;column-gap:12px}
+  @media(min-width:520px){.notas{column-count:3}}
+  .nota{break-inside:avoid;margin:0 0 12px;padding:12px 12px 16px;border-radius:3px;position:relative;font-family:var(--display);font-weight:500;font-size:15px;color:#4a3a12;line-height:1.3;box-shadow:0 6px 12px rgba(0,0,0,.3);transform:rotate(var(--r,-1.5deg))}
+  .nota:nth-child(3n){--r:1.6deg;background:#fff7cf} .nota:nth-child(3n+1){--r:-2deg;background:#ffe4ec} .nota:nth-child(3n+2){--r:1deg;background:#e3f0d4}
+  .nota .pin{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--sienna);box-shadow:0 2px 3px rgba(0,0,0,.4)}
+  .nota .lock{font-family:var(--util);font-size:9px;color:#a05a00;display:block;margin-top:4px;letter-spacing:.04em}
+  .nota .who{display:block;margin-top:6px;font-family:var(--util);font-size:10px;color:#7a6a3a;text-transform:uppercase;letter-spacing:.05em}
+  .nota .del{position:absolute;bottom:2px;right:7px;font-family:var(--util);font-size:10px;color:#a00;cursor:pointer;opacity:.6}
+  .nota .del:hover{opacity:1}
 
-/* ---------- deseos (corcho) ---------- */
-.corcho{background:#c99a5b;background-image:radial-gradient(rgba(0,0,0,.12) 1px,transparent 1px);
-  background-size:9px 9px;border-radius:12px;padding:1rem .8rem;min-height:220px;
-  border:8px solid #8a5a2b;box-shadow:inset 0 0 40px rgba(0,0,0,.18)}
-.notas{column-count:2;column-gap:.7rem}
-@media(min-width:560px){.notas{column-count:3}}
-.nota{break-inside:avoid;margin:0 0 .7rem;padding:.7rem .7rem 1rem;border-radius:3px;position:relative;
-  font-family:var(--hand);font-size:1.18rem;color:#4a3a12;line-height:1.28;
-  box-shadow:0 6px 12px rgba(0,0,0,.2);transform:rotate(var(--r,-1.5deg))}
-.nota:nth-child(3n){--r:1.6deg;background:#fff6c9}
-.nota:nth-child(3n+1){--r:-2deg;background:#ffe9ef}
-.nota:nth-child(3n+2){--r:1deg;background:#e6f2d8}
-.nota .pin{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:13px;height:13px;
-  border-radius:50%;background:var(--crimson);box-shadow:0 2px 3px rgba(0,0,0,.4)}
-.nota .who{display:block;margin-top:.35rem;font-family:var(--sans);font-size:.72rem;color:#7a6a3a;font-weight:700}
-.nota .del{position:absolute;bottom:3px;right:6px;font-family:var(--sans);font-size:.72rem;color:#b00;
-  cursor:pointer;opacity:.6}
-.nota .del:hover{opacity:1}
-
-/* ---------- formularios ---------- */
-.field{margin:.55rem 0}
-.field label{display:block;font-size:.8rem;font-weight:700;color:var(--crimson);margin-bottom:.2rem}
-.field input,.field textarea,.field select{width:100%;padding:.6rem .7rem;border-radius:9px;
-  border:1.5px solid rgba(184,30,54,.3);background:#fff;font-family:var(--sans);font-size:.95rem;color:var(--ink)}
-.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--magenta);border-color:var(--magenta)}
-.hint{font-size:.78rem;color:var(--muted);margin-top:.5rem}
-.ok{background:#e6f2d8;border-radius:10px;padding:.7rem .9rem;color:#3f5a1e;font-weight:600;margin-top:.6rem;display:none}
-.ok.show{display:block}
-
-.demo{font-size:.72rem;color:var(--muted);text-align:center;margin-top:.8rem;font-style:italic}
-.spot{border-radius:12px;overflow:hidden;border:3px solid var(--card);box-shadow:0 8px 20px rgba(120,16,17,.12)}
-
-/* panel novios */
-.lock{text-align:center}
-footer{text-align:center;color:var(--muted);font-size:.72rem;padding:1.4rem 0 .4rem}
-.heart-divider{display:flex;align-items:center;gap:.8rem;color:var(--crimson);margin:1.4rem 0}
-.heart-divider::before,.heart-divider::after{content:"";height:1px;flex:1;background:rgba(184,30,54,.3)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .field{margin:10px 0}
+  .field label{display:block;font-family:var(--util);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--wine);margin-bottom:4px}
+  .field input,.field textarea,.field select{width:100%;padding:11px 12px;border-radius:12px;border:1.5px solid var(--linea);background:#fff;font-family:var(--texto);font-size:15px;color:var(--tinta)}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--sienna);border-color:var(--sienna)}
+  .check{display:flex;align-items:center;gap:9px;margin:6px 0 2px;font-family:var(--texto);font-size:14px;color:var(--tinta)}
+  .check input{width:18px;height:18px;accent-color:var(--sienna)}
+  .ok{background:#e3f0d4;border-radius:12px;padding:10px 12px;color:#3f5a1e;font-weight:600;margin-top:10px;display:none}
+  .ok.show{display:block}
+  .spot{border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.24);margin-bottom:14px}
+  ul.lista{list-style:none;padding:0;margin:14px 0 0}
+  ul.lista li{background:var(--crema);border-radius:12px;padding:9px 13px;margin-bottom:7px;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+  footer{text-align:center;color:rgba(246,243,207,.75);font-family:var(--util);font-size:10px;letter-spacing:.08em;padding:18px 0 6px}
 </style>
 </head>
-<body data-tab="inicio">
+<body data-p="inicio">
 
-<!-- corazón sagrado reutilizable -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <symbol id="heart" viewBox="0 0 100 118">
-   <path d="M50 22 C46 12 38 15 42 27 C36 22 32 30 40 34 C44 20 50 26 50 26 C50 26 56 20 60 34 C68 30 64 22 58 27 C62 15 54 12 50 22Z" fill="#E8542F"/>
-   <path d="M50 40 C30 18 6 34 12 60 C17 82 44 96 50 108 C56 96 83 82 88 60 C94 34 70 18 50 40Z"
-     fill="#EFCCD3" stroke="#B81E36" stroke-width="3"/>
-   <path d="M50 52 C36 38 20 48 24 64 C28 78 45 88 50 98 C55 88 72 78 76 64 C80 48 64 38 50 52Z"
-     fill="none" stroke="#C4297B" stroke-width="2.2" stroke-dasharray="1.5 4" stroke-linecap="round"/>
- </symbol>
-</svg>
-
-<div id="bg" aria-hidden="true">
-  <img class="flo" src="img/rose-a.png" style="top:2%;left:-6%;width:200px;transform:rotate(-8deg)">
-  <img class="flo" src="img/rose-b.png" style="top:24%;right:-5%;width:150px;transform:rotate(12deg)">
-  <img class="flo" src="img/flor-2.png" style="top:48%;left:-7%;width:150px">
-  <img class="flo" src="img/rose-c.png" style="top:70%;right:-6%;width:160px;transform:rotate(-6deg)">
-  <img class="flo" src="img/flor-6.png" style="bottom:2%;left:6%;width:120px">
-  <img class="flo" src="img/rose-b.png" style="bottom:10%;right:8%;width:110px;transform:rotate(30deg)">
-  <img class="paw" src="img/perro-1.png" style="top:8%;right:4%;width:120px;transform:rotate(6deg)">
-  <img class="paw" src="img/perro-2.png" style="top:52%;left:2%;width:120px;transform:rotate(-8deg)">
-  <img class="paw" src="img/perro-3.png" style="bottom:6%;right:5%;width:150px">
+<div class="jardin" aria-hidden="true">
+  <img class="flo" src="img/flor-1.png" style="top:2%;left:-6%;width:135px;transform:rotate(-8deg)">
+  <img class="flo" src="img/flor-2.png" style="top:20%;right:-6%;width:125px;transform:rotate(10deg)">
+  <img class="flo" src="img/flor-3.png" style="top:40%;left:-7%;width:115px">
+  <img class="flo" src="img/flor-4.png" style="top:58%;right:-5%;width:120px;transform:rotate(-6deg)">
+  <img class="flo" src="img/flor-5.png" style="bottom:8%;left:3%;width:125px">
+  <img class="flo" src="img/flor-6.png" style="bottom:2%;right:6%;width:110px;transform:rotate(14deg)">
+  <img class="paw" src="img/perro-1.png" style="top:9%;right:5%;width:110px;transform:rotate(6deg)">
+  <img class="paw" src="img/perro-2.png" style="top:50%;left:2%;width:105px;transform:rotate(-8deg)">
+  <img class="paw" src="img/perro-3.png" style="bottom:6%;right:5%;width:140px">
 </div>
 
-<header>
-  <div class="bar">
-    <svg class="mono"><use href="#heart"/></svg>
-    <div class="brand">Paty &amp; Arturo</div>
+<div class="nav">
+  <div class="nav-top">
+    <button class="logo" onclick="go('inicio')">Paty &amp; Arturo</button>
+    <span class="marca">Nos casamos</span>
   </div>
-  <nav id="nav">
+  <div class="nav-inner" id="menu">
     <button data-go="inicio" class="on">Inicio</button>
     <button data-go="historia">Nuestra historia</button>
     <button data-go="llegar">Cómo llegar</button>
@@ -216,314 +154,231 @@ footer{text-align:center;color:var(--muted);font-size:.72rem;padding:1.4rem 0 .4
     <button data-go="playlist">Playlist</button>
     <button data-go="deseos">Deseos</button>
     <button data-go="rsvp">Confirmar</button>
-  </nav>
-</header>
+  </div>
+</div>
 
-<main>
+<div class="wrap">
 
-  <!-- ===== INICIO ===== -->
-  <section class="tab on" id="inicio">
+  <section class="pantalla on" id="inicio">
     <div class="hero">
-      <div class="arch"><div class="ph"><img src="img/portada.jpg" alt="Paty y Arturo"></div></div>
+      <div class="portada"><img src="img/portada.jpg" alt="Paty y Arturo"><div class="pcap">Paty &amp; Arturo</div></div>
       <div class="eyebrow">¡Nos casamos!</div>
       <div class="names">Paty <span class="amp">&amp;</span> Arturo</div>
-      <svg class="sacred"><use href="#heart"/></svg>
-      <div class="date" id="dateTxt">—</div>
-      <div class="place" id="placeTxt"></div>
+      <div class="fecha" id="fecha">—</div>
+      <div class="lugar" id="lugar"></div>
       <div class="count" id="count"></div>
       <div class="btns">
-        <button class="btn solid" id="btnCal">＋ Añadir al calendario</button>
-        <a class="btn ghost" id="btnWa" href="#" target="_blank" rel="noopener">Dudas por WhatsApp</a>
+        <button class="btn mag" id="btnCal">＋ Añadir al calendario</button>
+        <a class="btn line" id="btnWa" href="#" target="_blank" rel="noopener">Dudas por WhatsApp</a>
       </div>
     </div>
-    <div class="heart-divider"><svg width="22" height="26"><use href="#heart"/></svg></div>
-    <p class="lead">Nos daría muchísima ilusión tenerlos ahí. En este espacio están todos los detalles: nuestra historia, cómo llegar, la playlist de la fiesta y un lugar para dejarnos un deseo.</p>
   </section>
 
-  <!-- ===== HISTORIA ===== -->
-  <section class="tab" id="historia">
+  <section class="pantalla" id="historia">
     <div class="eyebrow">Cómo empezó todo</div>
-    <h2 class="title">Nuestra historia</h2>
+    <h2>Nuestra historia</h2>
     <p class="lead">Un camino contado en fotos — algunas todavía por llegar.</p>
-    <div class="story" id="story"></div>
+    <div class="album" id="album"></div>
   </section>
 
-  <!-- ===== CÓMO LLEGAR ===== -->
-  <section class="tab" id="llegar">
+  <section class="pantalla" id="llegar">
     <div class="eyebrow">Para no perderse</div>
-    <h2 class="title">Cómo llegar</h2>
-    <div class="frame" style="margin-top:1rem">
-      <div class="info">
-        <span class="tag">Ubicación</span>
-        <h3>El lugar</h3>
-        <p id="lugarInfo">Paty va a enviar la ubicación exacta para que el botón abra directo en Google Maps.</p>
-        <a class="btn solid" id="btnMaps" href="#" target="_blank" rel="noopener" style="pointer-events:none;opacity:.5">Abrir en Google Maps</a>
-      </div>
-      <div class="heart-divider"><svg width="20" height="24"><use href="#heart"/></svg></div>
-      <div class="info">
-        <span class="tag" style="background:var(--crimson)">Estacionamiento</span>
-        <h3>Dónde dejar el coche</h3>
-        <p>Se pueden estacionar por donde se entra a <b>San Jacinto</b>, hacia <b>La Calera</b>. Hay lugar de sobra por esa zona.</p>
-      </div>
+    <h2>Cómo llegar</h2>
+    <div class="card">
+      <span class="tag">Ubicación</span>
+      <h3>El lugar</h3>
+      <p id="lugarInfo">Paty va a enviar la ubicación exacta para que el botón abra directo en Google Maps.</p>
+      <a class="btn mag" id="btnMaps" href="#" target="_blank" rel="noopener" style="pointer-events:none;opacity:.45">Abrir en Google Maps</a>
     </div>
-    <p class="demo">Los perritos vinieron a saludar a esta pestaña 🐾</p>
+    <div class="card">
+      <span class="tag rojo">Estacionamiento</span>
+      <h3>Dónde dejar el coche</h3>
+      <p>Se pueden estacionar por donde se entra a <b>San Jacinto</b>, hacia <b>La Calera</b>. Hay lugar de sobra por esa zona.</p>
+    </div>
   </section>
 
-  <!-- ===== VESTUARIO ===== -->
-  <section class="tab" id="vestuario">
+  <section class="pantalla" id="vestuario">
     <div class="eyebrow">Cómo vestir</div>
-    <h2 class="title">Vestuario</h2>
-    <div class="frame" style="margin-top:1rem;text-align:center">
-      <svg style="width:54px;margin:0 auto .6rem"><use href="#heart"/></svg>
-      <h3 style="font-family:var(--serif);color:var(--magenta);font-size:1.6rem;margin:.2rem 0">Formal cómodo</h3>
-      <p style="max-width:30rem;margin:.4rem auto">Queremos que todas y todos se sientan <b>guapas y guapos</b>, y a gusto para bailar toda la noche.</p>
-      <p style="max-width:30rem;margin:.4rem auto;color:var(--muted)">Sin paleta de colores obligatoria: vengan con lo que les haga sentir bien. Elegancia relajada, cero incomodidad.</p>
+    <h2>Vestuario</h2>
+    <div class="card" style="text-align:center">
+      <span class="tag" style="margin:0 auto 10px">Código de vestimenta</span>
+      <h3 style="color:var(--sienna);font-size:24px">Formal cómodo</h3>
+      <p>Queremos que todas y todos se sientan <b>guapas y guapos</b>, y a gusto para bailar toda la noche.</p>
     </div>
   </section>
 
-  <!-- ===== PLAYLIST ===== -->
-  <section class="tab" id="playlist">
+  <section class="pantalla" id="playlist">
     <div class="eyebrow">La música de la fiesta</div>
-    <h2 class="title">Playlist</h2>
+    <h2>Playlist</h2>
     <p class="lead">Ayúdennos a armar la fiesta: propongan las canciones que no pueden faltar.</p>
-    <div id="spotWrap" class="spot" style="display:none;margin-bottom:1rem"></div>
-    <div class="frame">
-      <div class="field">
-        <label for="songName">Tu canción</label>
-        <input id="songName" placeholder="Canción — artista">
-      </div>
-      <div class="field">
-        <label for="songBy">¿De parte de quién?</label>
-        <input id="songBy" placeholder="Tu nombre">
-      </div>
-      <button class="btn solid" id="btnSong">Proponer canción</button>
+    <div id="spotWrap" class="spot" style="display:none"></div>
+    <div class="card">
+      <div class="field"><label for="songName">Tu canción</label><input id="songName" placeholder="Canción — artista"></div>
+      <div class="field"><label for="songBy">¿De parte de quién?</label><input id="songBy" placeholder="Tu nombre"></div>
+      <button class="btn mag" id="btnSong">Proponer canción</button>
       <div class="ok" id="songOk">¡Anotada! Gracias por el temazo 🎶</div>
-      <a class="btn olive" id="btnPlay" href="#" target="_blank" rel="noopener" style="margin-top:.8rem;display:none">Abrir la playlist en Spotify</a>
+      <a class="btn oli" id="btnPlay" href="#" target="_blank" rel="noopener" style="margin-top:10px;display:none">Abrir la playlist en Spotify</a>
     </div>
-    <ul id="songList" style="list-style:none;padding:0;margin:1rem 0 0"></ul>
+    <ul class="lista" id="songList"></ul>
   </section>
 
-  <!-- ===== DESEOS ===== -->
-  <section class="tab" id="deseos">
+  <section class="pantalla" id="deseos">
     <div class="eyebrow">Un buen deseo</div>
-    <h2 class="title">Deséales algo</h2>
+    <h2>Deséales algo</h2>
     <p class="lead">Deja una notita para los novios. Se queda pegada en el corcho para siempre.</p>
-    <div class="frame">
-      <div class="field"><label for="wishTxt">Tu deseo o consejo</label>
-        <textarea id="wishTxt" rows="2" placeholder="Que nunca les falte…"></textarea></div>
-      <div class="field"><label for="wishBy">Tu nombre</label>
-        <input id="wishBy" placeholder="¿Quién lo escribe?"></div>
-      <button class="btn solid" id="btnWish">Colgar en el corcho</button>
+    <div class="card">
+      <div class="field"><label for="wishTxt">Tu deseo o consejo</label><textarea id="wishTxt" rows="2" placeholder="Que nunca les falte…"></textarea></div>
+      <div class="field"><label for="wishBy">Tu nombre</label><input id="wishBy" placeholder="¿Quién lo escribe?"></div>
+      <label class="check"><input type="checkbox" id="wishPriv"> Que lo vean solo Paty y Arturo</label>
+      <button class="btn mag" id="btnWish" style="margin-top:10px">Colgar en el corcho</button>
     </div>
-    <div class="corcho" style="margin-top:1rem"><div class="notas" id="notas"></div></div>
+    <div class="corcho"><div class="notas" id="notas"></div></div>
   </section>
 
-  <!-- ===== RSVP ===== -->
-  <section class="tab" id="rsvp">
+  <section class="pantalla" id="rsvp">
     <div class="eyebrow">Lo más importante</div>
-    <h2 class="title">Confirma tu asistencia</h2>
+    <h2>Confirma tu asistencia</h2>
     <p class="lead">Cuéntanos si podrás acompañarnos. Es un solo minuto.</p>
-    <div class="frame">
+    <div class="card">
       <div class="field"><label for="rName">Nombre y apellido</label><input id="rName"></div>
       <div class="field"><label for="rGo">¿Nos acompañas?</label>
-        <select id="rGo">
-          <option value="">Elige una opción</option>
+        <select id="rGo"><option value="">Elige una opción</option>
           <option value="Sí, ahí estaré">Sí, ahí estaré 🎉</option>
-          <option value="No podré">No podré esta vez 💔</option>
-        </select></div>
-      <div class="field"><label for="rNum">¿Cuántas personas en total? (contándote)</label>
-        <input id="rNum" type="number" min="1" value="1"></div>
-      <div class="field"><label for="rMsg">Alergias, dieta o algún mensaje</label>
-        <textarea id="rMsg" rows="2" placeholder="Opcional"></textarea></div>
-      <button class="btn solid" id="btnRsvp">Enviar confirmación</button>
+          <option value="No podré">No podré esta vez 💔</option></select></div>
+      <div class="field"><label for="rNum">¿Cuántas personas en total? (contándote)</label><input id="rNum" type="number" min="1" value="1"></div>
+      <div class="field"><label for="rMsg">Alergias, dieta o algún mensaje</label><textarea id="rMsg" rows="2" placeholder="Opcional"></textarea></div>
+      <button class="btn mag" id="btnRsvp">Enviar confirmación</button>
       <div class="ok" id="rsvpOk">¡Gracias! Tu respuesta quedó registrada 💌</div>
     </div>
-    <div class="lock" style="margin-top:1.6rem">
-      <button class="btn ghost" id="btnPanel">Panel de los novios</button>
-    </div>
+    <div style="text-align:center"><button class="btn line" id="btnPanel">Panel de los novios</button></div>
   </section>
 
-</main>
+</div>
 
-<footer>Hecho con cariño para Paty &amp; Arturo · <span id="ver">v1</span></footer>
+<footer>Hecho con cariño para Paty &amp; Arturo · <span id="ver">v3</span></footer>
 
 <script>
 /* ============================================================
    CONFIGURACIÓN — Paty edita solo esta parte
    ============================================================ */
 const CFG = {
-  // Fecha y hora de la boda. FORMATO: "AAAA-MM-DDTHH:MM:00"
-  // ⚠️ ESTO ES UN EJEMPLO (14 de marzo, su día de pi). CÁMBIALO por el real.
-  fecha:      "2027-03-14T17:00:00",
-  fechaTexto: "14 de marzo de 2027",     // como se lee en pantalla; pon "Por confirmar" si aún no hay
-  lugar:      "",                        // nombre del lugar (opcional)
-  mapsUrl:    "",                        // pega aquí el link de Google Maps cuando lo tengas
-  whatsapp:   "",                        // número para dudas, ej. "5215512345678" (sin +, sin espacios)
-  spotifyEmbed:"",                       // el src del <iframe> de tu playlist de Spotify
-  playlistUrl:"",                        // link normal de la playlist para "Abrir en Spotify"
-  api:        "",                        // URL /exec del Apps Script (deseos, canciones, rsvp). Vacío = modo local
-  pin:        "1414"                     // clave del panel de los novios
+  fecha:      "2027-08-15T17:00:00",   // ⚠️ Puse año 2027 — CONFÍRMAME el año. Formato AAAA-MM-DDTHH:MM:00
+  fechaTexto: "15 de agosto de 2027",
+  lugar:      "",                      // nombre del lugar (opcional)
+  mapsUrl:    "",                      // link de Google Maps cuando lo tengas
+  whatsapp:   "",                      // número de dudas, ej "5215512345678" (sin + ni espacios)
+  spotifyEmbed:"https://open.spotify.com/embed/playlist/4KveQ45ljf3kTeHT4TdKAv?utm_source=generator",
+  playlistUrl:"https://open.spotify.com/playlist/4KveQ45ljf3kTeHT4TdKAv",
+  api:        "",                      // URL /exec del Apps Script. Vacío = modo local
+  pin:        "1414"                   // clave del panel de los novios
 };
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-document.getElementById("ver").textContent="v1";
+$("#ver").textContent="v3";
 
-/* ---------- navegación por pestañas ---------- */
 function go(id){
-  $$(".tab").forEach(t=>t.classList.toggle("on",t.id===id));
-  $$("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));
-  document.body.dataset.tab=id;
+  $$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));
+  $$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));
+  document.body.dataset.p=id;
   window.scrollTo({top:0,behavior:"smooth"});
 }
-$$("#nav button").forEach(b=>b.onclick=()=>go(b.dataset.go));
+$$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
-/* ---------- inicio: fecha, cuenta atrás, botones ---------- */
-$("#dateTxt").textContent = CFG.fechaTexto || "Por confirmar";
-if(CFG.lugar) $("#placeTxt").textContent = CFG.lugar;
-
+$("#fecha").textContent=CFG.fechaTexto||"Por confirmar";
+if(CFG.lugar)$("#lugar").textContent=CFG.lugar;
 function tick(){
-  const t=new Date(CFG.fecha)-new Date();
-  const c=$("#count");
+  const t=new Date(CFG.fecha)-new Date(), c=$("#count");
   if(isNaN(t)||t<0){c.innerHTML="<div><b>¡Hoy!</b><span>es el día</span></div>";return;}
   const d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),m=Math.floor(t%36e5/6e4),s=Math.floor(t%6e4/1e3);
   const cell=(n,l)=>`<div><b>${n}</b><span>${l}</span></div>`;
   c.innerHTML=cell(d,"días")+cell(h,"horas")+cell(m,"min")+cell(s,"seg");
 }
-tick(); setInterval(tick,1000);
-
-// añadir al calendario (.ics)
+tick();setInterval(tick,1000);
 $("#btnCal").onclick=()=>{
-  const start=new Date(CFG.fecha);
-  const end=new Date(start.getTime()+5*36e5);
+  const start=new Date(CFG.fecha), end=new Date(start.getTime()+5*36e5);
   const fmt=x=>x.toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
-  const ics=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT",
-    "SUMMARY:Boda de Paty y Arturo","DTSTART:"+fmt(start),"DTEND:"+fmt(end),
-    CFG.lugar?("LOCATION:"+CFG.lugar):"","END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
-  const a=document.createElement("a");
-  a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);
-  a.download="boda-paty-arturo.ics"; a.click();
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","SUMMARY:Boda de Paty y Arturo",
+    "DTSTART:"+fmt(start),"DTEND:"+fmt(end),CFG.lugar?("LOCATION:"+CFG.lugar):"","END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
+  const a=document.createElement("a");a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);a.download="boda-paty-arturo.ics";a.click();
 };
-// whatsapp
 if(CFG.whatsapp){$("#btnWa").href="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent("¡Hola! Tengo una duda sobre la boda de Paty y Arturo 💍");}
 else{$("#btnWa").style.display="none";}
-// maps
 if(CFG.mapsUrl){const m=$("#btnMaps");m.href=CFG.mapsUrl;m.style.pointerEvents="auto";m.style.opacity="1";$("#lugarInfo").textContent=CFG.lugar||"Toca el botón para abrir la ubicación en Google Maps.";}
 
-/* ---------- HISTORIA: álbum con voz de narrador ---------- */
-const HISTORIA=[
- {imgs:["img/foto-01a.jpg","img/foto-01b.jpg"],
+/* HISTORIA — voz de narrador impersonal */
+const H=[
+ {duo:["img/foto-01a.jpg","img/foto-01b.jpg"],
   cap:"Todo empezó una tarde en que él la vio tocar con RagaSon. Y como los dos son bien \u201cmodernos\u201d, unos meses después llegó una solicitud de amistad por Facebook."},
- {imgs:["img/foto-02.jpg"],
-  cap:"Al principio ella no recordaba quién era. Pero en enero de 2014, husmeando entre las solicitudes, una foto le llamó la atención: Arturo había cambiado la suya por esta. En febrero tuvieron su primera cita… que, por supuesto, salió muy bien."},
- {imgs:["img/foto-03.jpg"],
+ {img:"img/foto-02.jpg",tall:true,
+  cap:"Al principio ella no recordaba quién era. Pero en enero de 2014, husmeando entre las solicitudes, una foto le llamó la atención: Arturo había cambiado la suya por esta. En febrero tuvieron su primera cita… que salió muy bien."},
+ {img:"img/foto-03.jpg",
   cap:"Un par de semanas después, él fue a verla cantar y contar un cuento con la OSX. Bueno… fue porque ella lo invitó."},
  {note:"A partir de ahí empezaron a salir y, sin mucho trámite, se hicieron novios oficialmente el 14 de marzo de 2014 — que, mira tú, coincide con el día del número pi. Así arrancó una historia hecha de días juntos y días en familia."},
- {pending:true, cap:"La primera vez que cocinaron juntos."},
- {imgs:["img/foto-05.jpg"],
-  cap:"El día en que Isa, Caro y Emm ayudaron a hacer cochinas de pan. Fue la primera vez que Isa iba a su casa."},
- {imgs:["img/foto-06.jpg"], cap:"La primera foto de los dos, juntos."},
- {imgs:["img/foto-07.jpg"],
-  cap:"La primera vez que fueron a la ópera, en Bellas Artes. Dicen que ahí ya se dejaron ir en el enamoramiento."},
- {imgs:["img/foto-08.jpg"], cap:"En la sesión de fotos de su disco."},
- {imgs:["img/foto-09.jpg"], cap:"El primer viaje a Puebla, a casa de la mamá de Arturo."},
- {imgs:["img/foto-10.jpg"], cap:"El día en que él conoció a la mamá de Paty."},
- {imgs:["img/foto-11.jpg"], cap:"La primera Navidad juntos."},
- {imgs:["img/foto-12.jpg"], cap:"La primera Navidad con la mamá de Paty."},
- {imgs:["img/foto-13.jpg"], cap:"Cocinando juntos en la casa de Campo Viejo, cuando se fueron a vivir juntos."},
- {imgs:["img/foto-14.jpg"], cap:"El día que fueron a una boda en Tlacotalpan."},
- {imgs:["img/foto-15.jpg"], cap:"Día de Muertos en el trabajo de Arturo."}
+ {vacio:true,cap:"La primera vez que cocinaron juntos."},
+ {img:"img/foto-05.jpg",cap:"El día en que Isa, Caro y Emm ayudaron a hacer cochinas de pan. Fue la primera vez que Isa iba a su casa."},
+ {img:"img/foto-06.jpg",cap:"La primera foto de los dos, juntos."},
+ {img:"img/foto-07.jpg",cap:"La primera vez que fueron a la ópera, en Bellas Artes. Dicen que ahí ya se dejaron ir en el enamoramiento."},
+ {img:"img/foto-08.jpg",cap:"En la sesión de fotos de su disco."},
+ {img:"img/foto-09.jpg",cap:"El primer viaje a Puebla, a casa de la mamá de Arturo."},
+ {img:"img/foto-10.jpg",tall:true,cap:"El día en que él conoció a la mamá de Paty."},
+ {img:"img/foto-11.jpg",cap:"La primera Navidad juntos."},
+ {img:"img/foto-12.jpg",cap:"La primera Navidad con la mamá de Paty."},
+ {img:"img/foto-13.jpg",tall:true,cap:"Cocinando juntos en la casa de Campo Viejo, cuando se fueron a vivir juntos."},
+ {img:"img/foto-14.jpg",tall:true,cap:"El día que fueron a una boda en Tlacotalpan."},
+ {img:"img/foto-15.jpg",cap:"Día de Muertos en el trabajo de Arturo."}
 ];
-$("#story").innerHTML=HISTORIA.map(it=>{
-  if(it.note) return `<div class="node"><div class="note-card">${it.note}</div></div>`;
-  if(it.pending) return `<div class="node"><div class="pending"><span class="pill">Foto por llegar</span><p class="cap" style="margin:0">${it.cap}</p></div></div>`;
-  const one=it.imgs.length===1?" one":"";
-  const pics=it.imgs.map(s=>`<img loading="lazy" src="${s}" alt="">`).join("");
-  return `<div class="node"><div class="pics${one}">${pics}</div><p class="cap">${it.cap}</p></div>`;
+$("#album").innerHTML=H.map(it=>{
+  if(it.note)return `<div class="interludio">${it.note}</div>`;
+  if(it.vacio)return `<div class="polaroid vacio"><div class="hueco">Foto por llegar</div><div class="cap">${it.cap}</div></div>`;
+  if(it.duo)return `<div class="duo">${it.duo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div><div class="duo-cap">${it.cap}</div>`;
+  return `<div class="polaroid${it.tall?" tall":""}"><img loading="lazy" src="${it.img}" alt=""><div class="cap">${it.cap}</div></div>`;
 }).join("");
 
-/* ---------- Spotify + playlist ---------- */
-if(CFG.spotifyEmbed){
-  const w=$("#spotWrap");w.style.display="block";
-  w.innerHTML=`<iframe style="border-radius:12px" src="${CFG.spotifyEmbed}" width="100%" height="352" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>`;
-}
+/* Spotify */
+if(CFG.spotifyEmbed){$("#spotWrap").style.display="block";
+  $("#spotWrap").innerHTML=`<iframe style="border-radius:14px" src="${CFG.spotifyEmbed}" width="100%" height="352" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>`;}
 if(CFG.playlistUrl){const p=$("#btnPlay");p.href=CFG.playlistUrl;p.style.display="inline-flex";}
 
-/* ============================================================
-   ALMACÉN: usa el Apps Script si CFG.api está puesto;
-   si no, guarda en este dispositivo (modo demostración).
-   ============================================================ */
-const store={
-  async get(tipo){
-    if(CFG.api){try{const r=await fetch(CFG.api+"?t="+Date.now());const j=await r.json();return j[tipo]||[];}catch(e){return local(tipo);}}
-    return local(tipo);
-  },
-  async add(tipo,obj){
-    if(CFG.api){try{await fetch(CFG.api,{method:"POST",body:JSON.stringify({tipo,...obj})});}catch(e){}}
-    const a=local(tipo);a.push({id:Date.now()+"",...obj});localStorage.setItem("pa_"+tipo,JSON.stringify(a));
-  },
-  async del(tipo,id){
-    const a=local(tipo).filter(x=>x.id!==id);localStorage.setItem("pa_"+tipo,JSON.stringify(a));
-    if(CFG.api){try{await fetch(CFG.api,{method:"POST",body:JSON.stringify({tipo,del:id})});}catch(e){}}
-  }
-};
+/* almacén: Apps Script si CFG.api; si no, local (modo demostración) */
 function local(t){try{return JSON.parse(localStorage.getItem("pa_"+t)||"[]");}catch(e){return[];}}
-const demo = !CFG.api;
-
-/* ---------- deseos ---------- */
+const store={
+  async get(t){if(CFG.api){try{const r=await fetch(CFG.api+"?t="+Date.now());return (await r.json())[t]||[];}catch(e){return local(t);}}return local(t);},
+  async add(t,o){if(CFG.api){try{await fetch(CFG.api,{method:"POST",body:JSON.stringify({tipo:t,...o})});}catch(e){}}const a=local(t);a.push({id:Date.now()+"",...o});localStorage.setItem("pa_"+t,JSON.stringify(a));},
+  async del(t,id){localStorage.setItem("pa_"+t,JSON.stringify(local(t).filter(x=>x.id!==id)));if(CFG.api){try{await fetch(CFG.api,{method:"POST",body:JSON.stringify({tipo:t,del:id})});}catch(e){}}}
+};
 const myId=localStorage.getItem("pa_me")||(()=>{const x=Math.random().toString(36).slice(2);localStorage.setItem("pa_me",x);return x;})();
+
+/* deseos: se cuelgan y quedan; solo quien lo puso lo borra; público o solo para los novios */
+function esPriv(n){return n.privado===true||n.privado==="true"||n.privado===1||n.privado==="1"||n.privado==="TRUE";}
 async function pintaDeseos(){
-  const d=await store.get("deseos");
-  $("#notas").innerHTML=d.length?d.map(n=>`
-    <div class="nota"><span class="pin"></span>${esc(n.texto)}
-      <span class="who">— ${esc(n.autor||"Anónimo")}</span>
-      ${n.me===myId?`<span class="del" data-id="${n.id}">borrar</span>`:""}
-    </div>`).join(""):`<p style="color:#6b5220;font-family:var(--hand);font-size:1.3rem;text-align:center;width:100%">Sé el primero en dejar un deseo…</p>`;
+  const d=(await store.get("deseos")).filter(n=>!esPriv(n)||n.me===myId);
+  $("#notas").innerHTML=d.length?d.map(n=>`<div class="nota"><span class="pin"></span>${esc(n.texto)}
+    ${esPriv(n)?`<span class="lock">🔒 solo Paty y Arturo</span>`:""}
+    <span class="who">— ${esc(n.autor||"Anónimo")}</span>
+    ${n.me===myId?`<span class="del" data-id="${n.id}">borrar</span>`:""}</div>`).join(""):
+    `<p style="color:#5b4416;font-family:var(--display);width:100%;text-align:center">Sé el primero en dejar un deseo…</p>`;
   $$("#notas .del").forEach(b=>b.onclick=async()=>{await store.del("deseos",b.dataset.id);pintaDeseos();});
 }
-$("#btnWish").onclick=async()=>{
-  const t=$("#wishTxt").value.trim();if(!t)return;
-  await store.add("deseos",{texto:t,autor:$("#wishBy").value.trim(),me:myId});
-  $("#wishTxt").value="";$("#wishBy").value="";pintaDeseos();
-};
+$("#btnWish").onclick=async()=>{const t=$("#wishTxt").value.trim();if(!t)return;
+  await store.add("deseos",{texto:t,autor:$("#wishBy").value.trim(),privado:$("#wishPriv").checked,me:myId});
+  $("#wishTxt").value="";$("#wishBy").value="";$("#wishPriv").checked=false;pintaDeseos();};
 pintaDeseos();
 
-/* ---------- canciones ---------- */
-async function pintaSongs(){
-  const s=await store.get("canciones");
-  $("#songList").innerHTML=s.map(x=>`<li style="background:var(--card);border-radius:9px;padding:.5rem .8rem;margin-bottom:.4rem;box-shadow:0 4px 10px rgba(120,16,17,.06)"><b>${esc(x.cancion)}</b>${x.autor?` <span style="color:var(--muted);font-size:.85rem">· ${esc(x.autor)}</span>`:""}</li>`).join("");
-}
-$("#btnSong").onclick=async()=>{
-  const c=$("#songName").value.trim();if(!c)return;
-  await store.add("canciones",{cancion:c,autor:$("#songBy").value.trim()});
-  $("#songName").value="";$("#songBy").value="";
-  $("#songOk").classList.add("show");setTimeout(()=>$("#songOk").classList.remove("show"),2500);
-  pintaSongs();
-};
+async function pintaSongs(){const s=await store.get("canciones");$("#songList").innerHTML=s.map(x=>`<li><b>${esc(x.cancion)}</b>${x.autor?` <span style="opacity:.7;font-size:14px">· ${esc(x.autor)}</span>`:""}</li>`).join("");}
+$("#btnSong").onclick=async()=>{const c=$("#songName").value.trim();if(!c)return;await store.add("canciones",{cancion:c,autor:$("#songBy").value.trim()});$("#songName").value="";$("#songBy").value="";$("#songOk").classList.add("show");setTimeout(()=>$("#songOk").classList.remove("show"),2500);pintaSongs();};
 pintaSongs();
 
-/* ---------- rsvp ---------- */
-$("#btnRsvp").onclick=async()=>{
-  const n=$("#rName").value.trim(),g=$("#rGo").value;
-  if(!n||!g){alert("Pon tu nombre y si nos acompañas 🙏");return;}
-  await store.add("rsvp",{nombre:n,asiste:g,personas:$("#rNum").value,mensaje:$("#rMsg").value.trim()});
-  $("#rsvpOk").classList.add("show");
-  $("#rName").value="";$("#rGo").value="";$("#rNum").value=1;$("#rMsg").value="";
-};
+$("#btnRsvp").onclick=async()=>{const n=$("#rName").value.trim(),g=$("#rGo").value;if(!n||!g){alert("Pon tu nombre y si nos acompañas 🙏");return;}await store.add("rsvp",{nombre:n,asiste:g,personas:$("#rNum").value,mensaje:$("#rMsg").value.trim()});$("#rsvpOk").classList.add("show");$("#rName").value="";$("#rGo").value="";$("#rNum").value=1;$("#rMsg").value="";};
 
-/* ---------- panel de los novios ---------- */
-$("#btnPanel").onclick=async()=>{
-  const p=prompt("Clave de los novios:");if(p===null)return;
-  if(p!==CFG.pin){alert("Clave incorrecta");return;}
-  const r=await store.get("rsvp");
-  const si=r.filter(x=>/^Sí/.test(x.asiste)).reduce((a,x)=>a+(+x.personas||1),0);
-  const txt=r.length?r.map(x=>`• ${x.nombre} — ${x.asiste} (${x.personas}) ${x.mensaje?"· "+x.mensaje:""}`).join("\n"):"Aún no hay confirmaciones.";
-  alert(`CONFIRMACIONES (${r.length})\nPersonas que asisten: ${si}\n\n${txt}`);
-};
+$("#btnPanel").onclick=async()=>{const p=prompt("Clave de los novios:");if(p===null)return;if(p!==CFG.pin){alert("Clave incorrecta");return;}
+  const r=await store.get("rsvp");const si=r.filter(x=>/^Sí/.test(x.asiste)).reduce((a,x)=>a+(+x.personas||1),0);
+  const priv=(await store.get("deseos")).filter(esPriv);
+  const rtxt=r.length?r.map(x=>`• ${x.nombre} — ${x.asiste} (${x.personas}) ${x.mensaje?"· "+x.mensaje:""}`).join("\n"):"Aún no hay confirmaciones.";
+  const ptxt=priv.length?priv.map(x=>`🔒 ${x.texto} — ${x.autor||"Anónimo"}`).join("\n"):"Sin mensajes privados.";
+  alert(`CONFIRMACIONES (${r.length})\nPersonas que asisten: ${si}\n\n${rtxt}\n\n— — —\nDESEOS PRIVADOS\n${ptxt}`);};
 
 function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-
-/* ---------- service worker ---------- */
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
 </script>
 </body>

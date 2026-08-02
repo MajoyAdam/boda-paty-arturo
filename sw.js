@@ -1,11 +1,8 @@
-/* Sube este número cada vez que cambies algo importante.
-   Al detectarlo, la app se actualiza sola en el celular de todos. */
-const CACHE = "boda-pa-v1";
+const CACHE = "boda-pa-v3";
 const BASE = [
   "./","./index.html","./manifest.json",
-  "./img/portada.jpg",
-  "./img/rose-a.png","./img/rose-b.png","./img/rose-c.png",
-  "./img/flor-2.png","./img/flor-6.png",
+  "./img/portada.jpg","./img/corcho.jpg",
+  "./img/flor-1.png","./img/flor-2.png","./img/flor-3.png","./img/flor-4.png","./img/flor-5.png","./img/flor-6.png",
   "./img/perro-1.png","./img/perro-2.png","./img/perro-3.png"
 ];
 self.addEventListener("install", e => { self.skipWaiting();
@@ -14,7 +11,6 @@ self.addEventListener("activate", e => {
   e.waitUntil(caches.keys()
     .then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))
     .then(() => self.clients.claim())); });
-/* Red primero: siempre se ve la última versión; la caché sólo entra sin señal. */
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
   e.respondWith(fetch(e.request)
