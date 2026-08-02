@@ -18,91 +18,102 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;800&family=Outfit:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --fondo:#8B162B; --fondo-hondo:#6E1020;
-    --crema:#F6F3CF; --tinta:#3d221f;
-    --sienna:#F37521; --rosa:#F9B6B8; --pera:#C6B63B; --azul:#BAD2E8; --wine:#8B162B;
-    --linea:rgba(61,34,31,.16);
+    --latte:#F6F3CF;      /* Cosmic Latte — lienzo */
+    --crimson:#8B162B;    /* Crimson Ink — estructura */
+    --rosa:#F9B6B8;       /* Dusty Rose */
+    --pera:#C6B63B;       /* Neon Pear */
+    --sienna:#F37521;     /* Burnt Sienna — acción */
+    --azul:#BAD2E8;       /* Arctic Blue */
+    --tinta:#4a2016; --card:#FFFDF3; --linea:rgba(74,32,22,.14);
     --display:"Baloo 2","Trebuchet MS",cursive;
     --texto:"Outfit","Segoe UI",system-ui,sans-serif;
     --util:"Space Mono",ui-monospace,monospace;
   }
   *{box-sizing:border-box}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-  body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--texto);
+  body{margin:0;background:var(--latte);color:var(--tinta);font-family:var(--texto);
     font-weight:300;font-size:16px;line-height:1.55;position:relative;overflow-x:hidden;min-height:100vh}
   img{max-width:100%;display:block}
 
   .jardin{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-  .jardin img{position:absolute;filter:drop-shadow(0 3px 5px rgba(0,0,0,.22))}
-  .jardin .flo{opacity:.9}
+  .jardin img{position:absolute;filter:drop-shadow(0 3px 6px rgba(74,32,22,.16))}
+  .jardin .flo{opacity:.88}
   .jardin .paw{opacity:0;transition:opacity .5s ease}
   body[data-p="deseos"] .jardin .paw,
   body[data-p="llegar"] .jardin .paw,
-  body[data-p="vestuario"] .jardin .paw{opacity:.98}
+  body[data-p="vestuario"] .jardin .paw{opacity:1}
   body[data-p="deseos"] .jardin .flo,
   body[data-p="llegar"] .jardin .flo,
-  body[data-p="vestuario"] .jardin .flo{opacity:.4}
+  body[data-p="vestuario"] .jardin .flo{opacity:.55}
 
   .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:1}
 
-  .nav{position:sticky;top:0;z-index:20;background:rgba(139,22,43,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.14)}
+  .nav{position:sticky;top:0;z-index:20;background:rgba(139,22,43,.96);backdrop-filter:blur(8px)}
   .nav-top{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:9px 20px 2px}
-  .logo{font-family:var(--display);font-weight:800;font-size:18px;color:var(--crema);background:none;border:none;cursor:pointer;padding:0}
-  .marca{margin-left:auto;font-family:var(--util);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,243,207,.8)}
+  .logo{font-family:var(--display);font-weight:800;font-size:18px;color:var(--latte);background:none;border:none;cursor:pointer;padding:0}
+  .marca{margin-left:auto;font-family:var(--util);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,243,207,.82)}
   .nav-inner{max-width:560px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
   .nav-inner::-webkit-scrollbar{display:none}
   .nav-inner button{flex:0 0 auto;font-family:var(--util);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--tinta);border:none;border-radius:999px;padding:7px 13px;background:var(--crema);cursor:pointer;opacity:.75;transition:.15s}
-  .nav-inner button:hover{opacity:.92}
-  .nav-inner button.on{opacity:1;background:var(--sienna);color:#fff;font-weight:700}
+    color:var(--crimson);border:none;border-radius:999px;padding:7px 13px;background:var(--card);cursor:pointer;opacity:.9;transition:.15s}
+  .nav-inner button:hover{opacity:1}
+  .nav-inner button.on{background:var(--sienna);color:#4a1606;font-weight:700}
 
   .pantalla{display:none;animation:sube .45s ease}
   .pantalla.on{display:block}
   @keyframes sube{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  .eyebrow{font-family:var(--util);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rosa);text-align:center;margin:22px 0 4px}
-  h2{font-family:var(--display);font-weight:800;color:var(--crema);text-align:center;font-size:30px;line-height:1.05;margin:0 0 6px;text-shadow:0 2px 0 rgba(0,0,0,.25)}
-  .lead{text-align:center;color:var(--crema);opacity:.94;max-width:32rem;margin:0 auto 18px;font-weight:300}
+  .eyebrow{font-family:var(--util);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sienna);text-align:center;margin:22px 0 4px}
+  h2{font-family:var(--display);font-weight:800;color:var(--crimson);text-align:center;font-size:31px;line-height:1.05;margin:0 0 6px}
+  .lead{text-align:center;color:var(--tinta);opacity:.85;max-width:32rem;margin:0 auto 18px}
 
-  .card{background:var(--crema);border-radius:18px;padding:20px 18px;box-shadow:0 12px 28px rgba(0,0,0,.28);margin:0 0 16px}
-  .card h3{font-family:var(--display);font-weight:600;color:var(--wine);font-size:20px;margin:0 0 6px}
-  .tag{display:inline-block;font-family:var(--util);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--pera);color:#3d3210;padding:4px 9px;border-radius:999px;margin-bottom:8px}
-  .tag.rojo{background:var(--wine);color:var(--crema)}
+  .card{background:var(--card);border-radius:18px;padding:20px 18px;box-shadow:0 10px 26px rgba(74,32,22,.12);
+    border:1px solid var(--linea);margin:0 0 16px}
+  .card h3{font-family:var(--display);font-weight:600;color:var(--crimson);font-size:20px;margin:0 0 6px}
+  .tag{display:inline-block;font-family:var(--util);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    background:var(--pera);color:#3d3210;padding:4px 9px;border-radius:999px;margin-bottom:8px}
+  .tag.rojo{background:var(--crimson);color:var(--latte)}
+  .tag.azul{background:var(--azul);color:#1c3a4c}
+  .tag.rosa{background:var(--rosa);color:#7a1f2e}
 
-  .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:15px;border:none;cursor:pointer;padding:11px 18px;border-radius:999px;text-decoration:none;transition:.15s}
-  .btn.mag{background:var(--sienna);color:#fff} .btn.mag:hover{filter:brightness(1.06)}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:15px;
+    border:none;cursor:pointer;padding:11px 18px;border-radius:999px;text-decoration:none;transition:.15s}
+  .btn.mag{background:var(--sienna);color:#4a1606} .btn.mag:hover{filter:brightness(1.06)}
   .btn.oli{background:var(--pera);color:#3d3210} .btn.oli:hover{filter:brightness(1.04)}
-  .btn.line{background:transparent;color:var(--wine);border:2px solid var(--wine)}
+  .btn.line{background:transparent;color:var(--crimson);border:2px solid var(--crimson)}
   .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
 
   .hero{text-align:center;padding-top:10px}
-  .portada{width:min(300px,82%);margin:0 auto 14px;background:#fff;padding:12px 12px 0;border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.34);transform:rotate(-2deg)}
-  .portada img{width:100%;aspect-ratio:3/3.4;object-fit:cover}
+  .portada{width:min(300px,80%);margin:0 auto 14px;background:#fff;padding:12px 12px 0;border-radius:4px;
+    box-shadow:0 14px 30px rgba(74,32,22,.22);transform:rotate(-2deg)}
+  .portada img{width:100%;height:auto}
   .portada .pcap{font-family:var(--display);font-weight:600;color:var(--tinta);padding:9px 4px 12px;font-size:15px}
-  .names{font-family:var(--display);font-weight:800;color:var(--crema);font-size:44px;line-height:.98;margin:6px 0 2px;text-shadow:0 3px 0 rgba(0,0,0,.3)}
+  .names{font-family:var(--display);font-weight:800;color:var(--crimson);font-size:46px;line-height:.98;margin:8px 0 2px}
   .names .amp{color:var(--sienna)}
-  .fecha{font-family:var(--display);font-weight:600;color:var(--crema);font-size:22px;margin:2px 0}
-  .lugar{color:var(--crema);opacity:.9;font-weight:300}
+  .fecha{font-family:var(--display);font-weight:600;color:var(--crimson);opacity:.9;font-size:22px;margin:2px 0}
+  .lugar{color:var(--tinta);opacity:.75}
   .count{display:flex;justify-content:center;gap:8px;margin:18px 0 4px;flex-wrap:wrap}
-  .count div{background:var(--crema);border-radius:14px;min-width:62px;padding:9px 6px;color:var(--wine)}
+  .count div{background:var(--rosa);border-radius:14px;min-width:62px;padding:9px 6px;color:var(--crimson)}
   .count b{display:block;font-family:var(--display);font-weight:800;font-size:26px;line-height:1}
-  .count span{font-family:var(--util);font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+  .count span{font-family:var(--util);font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
 
   .album{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:8px}
-  .polaroid{background:#fff;padding:12px 12px 0;border-radius:3px;box-shadow:0 12px 26px rgba(0,0,0,.3);width:min(320px,92%);transform:rotate(var(--rot,-2deg))}
+  .polaroid{background:#fff;padding:12px 12px 0;border-radius:3px;box-shadow:0 12px 26px rgba(74,32,22,.2);
+    width:min(320px,92%);transform:rotate(var(--rot,-2deg))}
   .polaroid:nth-child(even){--rot:2deg}
   .polaroid:nth-child(3n){--rot:-3deg}
-  .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover}
-  .polaroid.tall img{aspect-ratio:3/4}
+  .polaroid img{width:100%;height:auto}          /* forma real, sin recortar */
   .polaroid .cap{font-family:var(--display);font-weight:500;color:var(--tinta);text-align:center;padding:11px 6px 15px;font-size:15px;line-height:1.3}
-  .duo{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;width:min(360px,96%)}
+  .duo{display:flex;gap:12px;justify-content:center;align-items:flex-start;flex-wrap:wrap;width:min(370px,96%)}
   .duo .polaroid{width:calc(50% - 8px);min-width:150px;transform:rotate(var(--rot,-3deg))}
   .duo .polaroid:nth-child(2){--rot:3deg}
-  .duo-cap{width:min(360px,92%);font-family:var(--display);font-weight:500;color:var(--crema);text-align:center;margin-top:-14px;font-size:15px}
-  .interludio{background:var(--crema);border-radius:16px;padding:16px 18px;width:min(360px,94%);text-align:center;font-family:var(--display);font-weight:500;color:var(--wine);font-size:16px;line-height:1.35;box-shadow:0 10px 24px rgba(0,0,0,.24)}
+  .duo-cap{width:min(370px,92%);font-family:var(--display);font-weight:500;color:var(--crimson);text-align:center;margin-top:2px;font-size:15px}
+  .interludio{background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--rosa);border-radius:14px;
+    padding:16px 18px;width:min(370px,94%);text-align:center;font-family:var(--display);font-weight:500;color:var(--crimson);font-size:16px;line-height:1.35;box-shadow:0 8px 20px rgba(74,32,22,.1)}
   .polaroid.vacio .hueco{width:100%;aspect-ratio:1/1;border:2px dashed var(--sienna);border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--sienna);font-family:var(--util);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:14px}
 
-  .corcho{background:url('img/corcho.jpg') center/cover, #c99a5b;border-radius:10px;padding:20px 14px;min-height:240px;box-shadow:0 12px 26px rgba(0,0,0,.3)}
+  .corcho{background:url('img/corcho.jpg') center/cover,#c99a5b;border-radius:12px;padding:20px 14px;min-height:240px;
+    box-shadow:inset 0 0 30px rgba(0,0,0,.22),0 12px 26px rgba(74,32,22,.2)}
   .notas{column-count:2;column-gap:12px}
   @media(min-width:520px){.notas{column-count:3}}
   .nota{break-inside:avoid;margin:0 0 12px;padding:12px 12px 16px;border-radius:3px;position:relative;font-family:var(--display);font-weight:500;font-size:15px;color:#4a3a12;line-height:1.3;box-shadow:0 6px 12px rgba(0,0,0,.3);transform:rotate(var(--r,-1.5deg))}
@@ -114,31 +125,31 @@
   .nota .del:hover{opacity:1}
 
   .field{margin:10px 0}
-  .field label{display:block;font-family:var(--util);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--wine);margin-bottom:4px}
+  .field label{display:block;font-family:var(--util);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--crimson);margin-bottom:4px}
   .field input,.field textarea,.field select{width:100%;padding:11px 12px;border-radius:12px;border:1.5px solid var(--linea);background:#fff;font-family:var(--texto);font-size:15px;color:var(--tinta)}
   .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--sienna);border-color:var(--sienna)}
   .check{display:flex;align-items:center;gap:9px;margin:6px 0 2px;font-family:var(--texto);font-size:14px;color:var(--tinta)}
   .check input{width:18px;height:18px;accent-color:var(--sienna)}
   .ok{background:#e3f0d4;border-radius:12px;padding:10px 12px;color:#3f5a1e;font-weight:600;margin-top:10px;display:none}
   .ok.show{display:block}
-  .spot{border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.24);margin-bottom:14px}
+  .spot{border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(74,32,22,.16);margin-bottom:14px}
   ul.lista{list-style:none;padding:0;margin:14px 0 0}
-  ul.lista li{background:var(--crema);border-radius:12px;padding:9px 13px;margin-bottom:7px;box-shadow:0 6px 14px rgba(0,0,0,.18)}
-  footer{text-align:center;color:rgba(246,243,207,.75);font-family:var(--util);font-size:10px;letter-spacing:.08em;padding:18px 0 6px}
+  ul.lista li{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:9px 13px;margin-bottom:7px}
+  footer{text-align:center;color:rgba(74,32,22,.5);font-family:var(--util);font-size:10px;letter-spacing:.08em;padding:18px 0 6px}
 </style>
 </head>
 <body data-p="inicio">
 
 <div class="jardin" aria-hidden="true">
-  <img class="flo" src="img/flor-1.png" style="top:2%;left:-6%;width:135px;transform:rotate(-8deg)">
-  <img class="flo" src="img/flor-2.png" style="top:20%;right:-6%;width:125px;transform:rotate(10deg)">
-  <img class="flo" src="img/flor-3.png" style="top:40%;left:-7%;width:115px">
-  <img class="flo" src="img/flor-4.png" style="top:58%;right:-5%;width:120px;transform:rotate(-6deg)">
-  <img class="flo" src="img/flor-5.png" style="bottom:8%;left:3%;width:125px">
-  <img class="flo" src="img/flor-6.png" style="bottom:2%;right:6%;width:110px;transform:rotate(14deg)">
-  <img class="paw" src="img/perro-1.png" style="top:9%;right:5%;width:110px;transform:rotate(6deg)">
-  <img class="paw" src="img/perro-2.png" style="top:50%;left:2%;width:105px;transform:rotate(-8deg)">
-  <img class="paw" src="img/perro-3.png" style="bottom:6%;right:5%;width:140px">
+  <img class="flo" src="img/flor-1.png" style="top:2%;left:-6%;width:130px;transform:rotate(-8deg)">
+  <img class="flo" src="img/flor-3.png" style="top:19%;right:-6%;width:120px;transform:rotate(10deg)">
+  <img class="flo" src="img/flor-5.png" style="top:40%;left:-7%;width:115px">
+  <img class="flo" src="img/flor-2.png" style="top:57%;right:-6%;width:120px;transform:rotate(-6deg)">
+  <img class="flo" src="img/flor-4.png" style="bottom:8%;left:3%;width:120px">
+  <img class="flo" src="img/flor-6.png" style="bottom:2%;right:5%;width:112px;transform:rotate(14deg)">
+  <img class="paw" src="img/perro-1.png" style="top:9%;right:5%;width:108px;transform:rotate(6deg)">
+  <img class="paw" src="img/perro-2.png" style="top:50%;left:2%;width:104px;transform:rotate(-8deg)">
+  <img class="paw" src="img/perro-3.png" style="bottom:6%;right:5%;width:138px">
 </div>
 
 <div class="nav">
@@ -185,7 +196,7 @@
     <div class="eyebrow">Para no perderse</div>
     <h2>Cómo llegar</h2>
     <div class="card">
-      <span class="tag">Ubicación</span>
+      <span class="tag azul">Ubicación</span>
       <h3>El lugar</h3>
       <p id="lugarInfo">Paty va a enviar la ubicación exacta para que el botón abra directo en Google Maps.</p>
       <a class="btn mag" id="btnMaps" href="#" target="_blank" rel="noopener" style="pointer-events:none;opacity:.45">Abrir en Google Maps</a>
@@ -201,7 +212,7 @@
     <div class="eyebrow">Cómo vestir</div>
     <h2>Vestuario</h2>
     <div class="card" style="text-align:center">
-      <span class="tag" style="margin:0 auto 10px">Código de vestimenta</span>
+      <span class="tag rosa" style="margin:0 auto 10px">Código de vestimenta</span>
       <h3 style="color:var(--sienna);font-size:24px">Formal cómodo</h3>
       <p>Queremos que todas y todos se sientan <b>guapas y guapos</b>, y a gusto para bailar toda la noche.</p>
     </div>
@@ -255,7 +266,7 @@
 
 </div>
 
-<footer>Hecho con cariño para Paty &amp; Arturo · <span id="ver">v3</span></footer>
+<footer>Hecho con cariño para Paty &amp; Arturo · <span id="ver">v4</span></footer>
 
 <script>
 /* ============================================================
@@ -275,13 +286,12 @@ const CFG = {
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-$("#ver").textContent="v3";
+$("#ver").textContent="v4";
 
 function go(id){
   $$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));
   $$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));
-  document.body.dataset.p=id;
-  window.scrollTo({top:0,behavior:"smooth"});
+  document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});
 }
 $$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
@@ -306,14 +316,12 @@ if(CFG.whatsapp){$("#btnWa").href="https://wa.me/"+CFG.whatsapp+"?text="+encodeU
 else{$("#btnWa").style.display="none";}
 if(CFG.mapsUrl){const m=$("#btnMaps");m.href=CFG.mapsUrl;m.style.pointerEvents="auto";m.style.opacity="1";$("#lugarInfo").textContent=CFG.lugar||"Toca el botón para abrir la ubicación en Google Maps.";}
 
-/* HISTORIA — voz de narrador impersonal */
 const H=[
  {duo:["img/foto-01a.jpg","img/foto-01b.jpg"],
   cap:"Todo empezó una tarde en que él la vio tocar con RagaSon. Y como los dos son bien \u201cmodernos\u201d, unos meses después llegó una solicitud de amistad por Facebook."},
- {img:"img/foto-02.jpg",tall:true,
+ {img:"img/foto-02.jpg",
   cap:"Al principio ella no recordaba quién era. Pero en enero de 2014, husmeando entre las solicitudes, una foto le llamó la atención: Arturo había cambiado la suya por esta. En febrero tuvieron su primera cita… que salió muy bien."},
- {img:"img/foto-03.jpg",
-  cap:"Un par de semanas después, él fue a verla cantar y contar un cuento con la OSX. Bueno… fue porque ella lo invitó."},
+ {img:"img/foto-03.jpg",cap:"Un par de semanas después, él fue a verla cantar y contar un cuento con la OSX. Bueno… fue porque ella lo invitó."},
  {note:"A partir de ahí empezaron a salir y, sin mucho trámite, se hicieron novios oficialmente el 14 de marzo de 2014 — que, mira tú, coincide con el día del número pi. Así arrancó una historia hecha de días juntos y días en familia."},
  {vacio:true,cap:"La primera vez que cocinaron juntos."},
  {img:"img/foto-05.jpg",cap:"El día en que Isa, Caro y Emm ayudaron a hacer cochinas de pan. Fue la primera vez que Isa iba a su casa."},
@@ -321,26 +329,24 @@ const H=[
  {img:"img/foto-07.jpg",cap:"La primera vez que fueron a la ópera, en Bellas Artes. Dicen que ahí ya se dejaron ir en el enamoramiento."},
  {img:"img/foto-08.jpg",cap:"En la sesión de fotos de su disco."},
  {img:"img/foto-09.jpg",cap:"El primer viaje a Puebla, a casa de la mamá de Arturo."},
- {img:"img/foto-10.jpg",tall:true,cap:"El día en que él conoció a la mamá de Paty."},
+ {img:"img/foto-10.jpg",cap:"El día en que él conoció a la mamá de Paty."},
  {img:"img/foto-11.jpg",cap:"La primera Navidad juntos."},
  {img:"img/foto-12.jpg",cap:"La primera Navidad con la mamá de Paty."},
- {img:"img/foto-13.jpg",tall:true,cap:"Cocinando juntos en la casa de Campo Viejo, cuando se fueron a vivir juntos."},
- {img:"img/foto-14.jpg",tall:true,cap:"El día que fueron a una boda en Tlacotalpan."},
+ {img:"img/foto-13.jpg",cap:"Cocinando juntos en la casa de Campo Viejo, cuando se fueron a vivir juntos."},
+ {img:"img/foto-14.jpg",cap:"El día que fueron a una boda en Tlacotalpan."},
  {img:"img/foto-15.jpg",cap:"Día de Muertos en el trabajo de Arturo."}
 ];
 $("#album").innerHTML=H.map(it=>{
   if(it.note)return `<div class="interludio">${it.note}</div>`;
   if(it.vacio)return `<div class="polaroid vacio"><div class="hueco">Foto por llegar</div><div class="cap">${it.cap}</div></div>`;
   if(it.duo)return `<div class="duo">${it.duo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div><div class="duo-cap">${it.cap}</div>`;
-  return `<div class="polaroid${it.tall?" tall":""}"><img loading="lazy" src="${it.img}" alt=""><div class="cap">${it.cap}</div></div>`;
+  return `<div class="polaroid"><img loading="lazy" src="${it.img}" alt=""><div class="cap">${it.cap}</div></div>`;
 }).join("");
 
-/* Spotify */
 if(CFG.spotifyEmbed){$("#spotWrap").style.display="block";
   $("#spotWrap").innerHTML=`<iframe style="border-radius:14px" src="${CFG.spotifyEmbed}" width="100%" height="352" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>`;}
 if(CFG.playlistUrl){const p=$("#btnPlay");p.href=CFG.playlistUrl;p.style.display="inline-flex";}
 
-/* almacén: Apps Script si CFG.api; si no, local (modo demostración) */
 function local(t){try{return JSON.parse(localStorage.getItem("pa_"+t)||"[]");}catch(e){return[];}}
 const store={
   async get(t){if(CFG.api){try{const r=await fetch(CFG.api+"?t="+Date.now());return (await r.json())[t]||[];}catch(e){return local(t);}}return local(t);},
@@ -349,7 +355,6 @@ const store={
 };
 const myId=localStorage.getItem("pa_me")||(()=>{const x=Math.random().toString(36).slice(2);localStorage.setItem("pa_me",x);return x;})();
 
-/* deseos: se cuelgan y quedan; solo quien lo puso lo borra; público o solo para los novios */
 function esPriv(n){return n.privado===true||n.privado==="true"||n.privado===1||n.privado==="1"||n.privado==="TRUE";}
 async function pintaDeseos(){
   const d=(await store.get("deseos")).filter(n=>!esPriv(n)||n.me===myId);
