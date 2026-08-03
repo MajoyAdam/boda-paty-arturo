@@ -1,10 +1,10 @@
 {
-  "name": "Paty & Arturo · Nos casamos",
-  "short_name": "Paty & Arturo",
+  "name": "Arturo y Paty · Nos casamos",
+  "short_name": "Arturo y Paty",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#F7F4D5",
-  "theme_color": "#0A3323",
+  "background_color": "#EEE2D3",
+  "theme_color": "#AB482D",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
