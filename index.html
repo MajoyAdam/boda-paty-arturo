@@ -4,138 +4,143 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Paty &amp; Arturo · Nos casamos</title>
-<meta name="theme-color" content="#8B162B">
-<meta name="description" content="La boda de Paty y Arturo. Nuestra historia, cómo llegar, playlist y deseos.">
+<meta name="theme-color" content="#0A3323">
+<meta name="description" content="La boda de Paty y Arturo. Nuestra historia, el día, cómo llegar, playlist y deseos.">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.json">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Paty & Arturo · Nos casamos">
-<meta property="og:description" content="Nuestra historia, cómo llegar, playlist y deseos.">
+<meta property="og:description" content="Nuestra historia, el día, cómo llegar, playlist y deseos.">
 <meta property="og:image" content="og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;800&family=Outfit:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --latte:#F6F3CF;      /* Cosmic Latte — lienzo */
-    --crimson:#8B162B;    /* Crimson Ink — estructura */
-    --rosa:#F9B6B8;       /* Dusty Rose */
-    --pera:#C6B63B;       /* Neon Pear */
-    --sienna:#F37521;     /* Burnt Sienna — acción */
-    --azul:#BAD2E8;       /* Arctic Blue */
-    --tinta:#4a2016; --card:#FFFDF3; --linea:rgba(74,32,22,.14);
-    --display:"Baloo 2","Trebuchet MS",cursive;
-    --texto:"Outfit","Segoe UI",system-ui,sans-serif;
-    --util:"Space Mono",ui-monospace,monospace;
+    --verde:#0A3323;      /* Dark green — estructura */
+    --moss:#839958;       /* Moss green */
+    --beige:#F7F4D5;      /* lienzo */
+    --rosy:#D3968C;       /* Rosy brown */
+    --midnight:#105666;   /* Midnight green — acción */
+    --tinta:#22302a; --card:#FFFFFF; --linea:rgba(10,51,35,.14);
+    --ff:"Quicksand","Segoe UI",system-ui,sans-serif;
   }
   *{box-sizing:border-box}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-  body{margin:0;background:var(--latte);color:var(--tinta);font-family:var(--texto);
-    font-weight:300;font-size:16px;line-height:1.55;position:relative;overflow-x:hidden;min-height:100vh}
+  body{margin:0;background:var(--beige);color:var(--tinta);font-family:var(--ff);font-weight:400;font-size:16px;line-height:1.55;position:relative;overflow-x:hidden;min-height:100vh}
   img{max-width:100%;display:block}
 
   .jardin{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-  .jardin img{position:absolute;filter:drop-shadow(0 3px 6px rgba(74,32,22,.16))}
-  .jardin .flo{opacity:.88}
+  .jardin img{position:absolute;filter:drop-shadow(0 3px 6px rgba(10,51,35,.16))}
+  .jardin .flo{opacity:.9}
   .jardin .paw{opacity:0;transition:opacity .5s ease}
-  body[data-p="deseos"] .jardin .paw,
-  body[data-p="llegar"] .jardin .paw,
-  body[data-p="vestuario"] .jardin .paw{opacity:1}
-  body[data-p="deseos"] .jardin .flo,
-  body[data-p="llegar"] .jardin .flo,
-  body[data-p="vestuario"] .jardin .flo{opacity:.55}
+  body[data-p="deseos"] .jardin .paw,body[data-p="llegar"] .jardin .paw,body[data-p="vestuario"] .jardin .paw{opacity:1}
+  body[data-p="deseos"] .jardin .flo,body[data-p="llegar"] .jardin .flo,body[data-p="vestuario"] .jardin .flo{opacity:.5}
 
   .wrap{max-width:560px;margin:0 auto;padding:0 20px 90px;position:relative;z-index:1}
 
-  .nav{position:sticky;top:0;z-index:20;background:rgba(139,22,43,.96);backdrop-filter:blur(8px)}
+  .nav{position:sticky;top:0;z-index:20;background:rgba(10,51,35,.97);backdrop-filter:blur(8px)}
   .nav-top{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:9px 20px 2px}
-  .logo{font-family:var(--display);font-weight:800;font-size:18px;color:var(--latte);background:none;border:none;cursor:pointer;padding:0}
-  .marca{margin-left:auto;font-family:var(--util);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,243,207,.82)}
+  .logo{font-family:var(--ff);font-weight:700;font-size:18px;color:var(--beige);background:none;border:none;cursor:pointer;padding:0}
+  .marca{margin-left:auto;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,244,213,.8)}
   .nav-inner{max-width:560px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
   .nav-inner::-webkit-scrollbar{display:none}
-  .nav-inner button{flex:0 0 auto;font-family:var(--util);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--crimson);border:none;border-radius:999px;padding:7px 13px;background:var(--card);cursor:pointer;opacity:.9;transition:.15s}
+  .nav-inner button{flex:0 0 auto;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--verde);border:none;border-radius:999px;padding:7px 13px;background:var(--beige);cursor:pointer;opacity:.92;transition:.15s}
   .nav-inner button:hover{opacity:1}
-  .nav-inner button.on{background:var(--sienna);color:#4a1606;font-weight:700}
+  .nav-inner button.on{background:var(--midnight);color:#fff}
 
   .pantalla{display:none;animation:sube .45s ease}
   .pantalla.on{display:block}
   @keyframes sube{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-  .eyebrow{font-family:var(--util);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sienna);text-align:center;margin:22px 0 4px}
-  h2{font-family:var(--display);font-weight:800;color:var(--crimson);text-align:center;font-size:31px;line-height:1.05;margin:0 0 6px}
-  .lead{text-align:center;color:var(--tinta);opacity:.85;max-width:32rem;margin:0 auto 18px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--midnight);text-align:center;margin:22px 0 4px}
+  h2{font-weight:700;color:var(--verde);text-align:center;font-size:30px;line-height:1.05;margin:0 0 6px}
+  .lead{text-align:center;color:var(--tinta);opacity:.82;max-width:32rem;margin:0 auto 18px}
 
-  .card{background:var(--card);border-radius:18px;padding:20px 18px;box-shadow:0 10px 26px rgba(74,32,22,.12);
-    border:1px solid var(--linea);margin:0 0 16px}
-  .card h3{font-family:var(--display);font-weight:600;color:var(--crimson);font-size:20px;margin:0 0 6px}
-  .tag{display:inline-block;font-family:var(--util);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-    background:var(--pera);color:#3d3210;padding:4px 9px;border-radius:999px;margin-bottom:8px}
-  .tag.rojo{background:var(--crimson);color:var(--latte)}
-  .tag.azul{background:var(--azul);color:#1c3a4c}
-  .tag.rosa{background:var(--rosa);color:#7a1f2e}
+  .card{background:var(--card);border-radius:18px;padding:20px 18px;box-shadow:0 10px 26px rgba(10,51,35,.1);border:1px solid var(--linea);margin:0 0 16px}
+  .card h3{font-weight:700;color:var(--verde);font-size:20px;margin:0 0 6px}
+  .tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--moss);color:#20300f;padding:4px 9px;border-radius:999px;margin-bottom:8px}
+  .tag.verde{background:var(--verde);color:var(--beige)} .tag.azul{background:var(--midnight);color:var(--beige)} .tag.rosa{background:var(--rosy);color:#3a1f18}
 
-  .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:15px;
-    border:none;cursor:pointer;padding:11px 18px;border-radius:999px;text-decoration:none;transition:.15s}
-  .btn.mag{background:var(--sienna);color:#4a1606} .btn.mag:hover{filter:brightness(1.06)}
-  .btn.oli{background:var(--pera);color:#3d3210} .btn.oli:hover{filter:brightness(1.04)}
-  .btn.line{background:transparent;color:var(--crimson);border:2px solid var(--crimson)}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--ff);font-weight:700;font-size:15px;border:none;cursor:pointer;padding:11px 18px;border-radius:999px;text-decoration:none;transition:.15s}
+  .btn.mag{background:var(--midnight);color:#fff} .btn.mag:hover{filter:brightness(1.1)}
+  .btn.oli{background:var(--moss);color:#20300f} .btn.oli:hover{filter:brightness(1.04)}
+  .btn.line{background:transparent;color:var(--verde);border:2px solid var(--verde)}
   .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
 
   .hero{text-align:center;padding-top:10px}
-  .portada{width:min(300px,80%);margin:0 auto 14px;background:#fff;padding:12px 12px 0;border-radius:4px;
-    box-shadow:0 14px 30px rgba(74,32,22,.22);transform:rotate(-2deg)}
+  .portada{width:min(300px,80%);margin:0 auto 14px;background:#fff;padding:12px 12px 0;border-radius:4px;box-shadow:0 14px 30px rgba(10,51,35,.22);transform:rotate(-2deg)}
   .portada img{width:100%;height:auto}
-  .portada .pcap{font-family:var(--display);font-weight:600;color:var(--tinta);padding:9px 4px 12px;font-size:15px}
-  .names{font-family:var(--display);font-weight:800;color:var(--crimson);font-size:46px;line-height:.98;margin:8px 0 2px}
-  .names .amp{color:var(--sienna)}
-  .fecha{font-family:var(--display);font-weight:600;color:var(--crimson);opacity:.9;font-size:22px;margin:2px 0}
+  .portada .pcap{font-weight:600;color:var(--tinta);padding:9px 4px 12px;font-size:15px}
+  .names{font-weight:700;color:var(--verde);font-size:44px;line-height:1;margin:8px 0 2px}
+  .names .amp{color:var(--rosy)}
+  .fecha{font-weight:600;color:var(--midnight);font-size:22px;margin:2px 0}
   .lugar{color:var(--tinta);opacity:.75}
   .count{display:flex;justify-content:center;gap:8px;margin:18px 0 4px;flex-wrap:wrap}
-  .count div{background:var(--rosa);border-radius:14px;min-width:62px;padding:9px 6px;color:var(--crimson)}
-  .count b{display:block;font-family:var(--display);font-weight:800;font-size:26px;line-height:1}
-  .count span{font-family:var(--util);font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+  .count div{background:var(--rosy);border-radius:14px;min-width:62px;padding:9px 6px;color:#3a1f18}
+  .count b{display:block;font-weight:700;font-size:26px;line-height:1}
+  .count span{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+
+  /* programa del día */
+  .dia{max-width:340px;margin:22px auto 0;text-align:left}
+  .dia .th{text-align:center;font-weight:700;color:var(--verde);font-size:18px;margin-bottom:10px}
+  .dia ul{list-style:none;margin:0;padding:0;position:relative}
+  .dia li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--linea)}
+  .dia li:last-child{border-bottom:none}
+  .dia .hora{font-weight:700;color:var(--midnight);min-width:74px;font-size:14px}
+  .dia .qq{color:var(--tinta)}
 
   .album{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:8px}
-  .polaroid{background:#fff;padding:12px 12px 0;border-radius:3px;box-shadow:0 12px 26px rgba(74,32,22,.2);
-    width:min(320px,92%);transform:rotate(var(--rot,-2deg))}
-  .polaroid:nth-child(even){--rot:2deg}
-  .polaroid:nth-child(3n){--rot:-3deg}
-  .polaroid img{width:100%;height:auto}          /* forma real, sin recortar */
-  .polaroid .cap{font-family:var(--display);font-weight:500;color:var(--tinta);text-align:center;padding:11px 6px 15px;font-size:15px;line-height:1.3}
+  .polaroid{background:#fff;padding:12px 12px 0;border-radius:3px;box-shadow:0 12px 26px rgba(10,51,35,.18);width:min(320px,92%);transform:rotate(var(--rot,-2deg))}
+  .polaroid:nth-child(even){--rot:2deg}.polaroid:nth-child(3n){--rot:-3deg}
+  .polaroid img{width:100%;height:auto}
+  .polaroid .cap{font-weight:500;color:var(--tinta);text-align:center;padding:11px 6px 15px;font-size:15px;line-height:1.3}
   .duo{display:flex;gap:12px;justify-content:center;align-items:flex-start;flex-wrap:wrap;width:min(370px,96%)}
   .duo .polaroid{width:calc(50% - 8px);min-width:150px;transform:rotate(var(--rot,-3deg))}
   .duo .polaroid:nth-child(2){--rot:3deg}
-  .duo-cap{width:min(370px,92%);font-family:var(--display);font-weight:500;color:var(--crimson);text-align:center;margin-top:2px;font-size:15px}
-  .interludio{background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--rosa);border-radius:14px;
-    padding:16px 18px;width:min(370px,94%);text-align:center;font-family:var(--display);font-weight:500;color:var(--crimson);font-size:16px;line-height:1.35;box-shadow:0 8px 20px rgba(74,32,22,.1)}
-  .polaroid.vacio .hueco{width:100%;aspect-ratio:1/1;border:2px dashed var(--sienna);border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--sienna);font-family:var(--util);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:14px}
+  .duo-cap{width:min(370px,92%);font-weight:600;color:var(--verde);text-align:center;margin-top:2px;font-size:15px}
+  .grupo{width:min(420px,98%)}
+  .cap-grupo{text-align:center;font-weight:700;color:var(--midnight);font-size:17px;margin:0 0 12px}
+  .cluster{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .cluster .polaroid{width:calc(50% - 8px);min-width:135px;padding:9px 9px 0;transform:rotate(var(--rot,-2deg))}
+  .cluster .polaroid:nth-child(even){--rot:2.5deg}.cluster .polaroid:nth-child(3n){--rot:-2deg}
+  .interludio{background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--rosy);border-radius:14px;padding:16px 18px;width:min(370px,94%);text-align:center;font-weight:500;color:var(--verde);font-size:16px;line-height:1.35;box-shadow:0 8px 20px rgba(10,51,35,.08)}
+  .polaroid.vacio .hueco{width:100%;aspect-ratio:1/1;border:2px dashed var(--midnight);border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--midnight);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px}
 
-  .corcho{background:url('img/corcho.jpg') center/cover,#c99a5b;border-radius:12px;padding:20px 14px;min-height:240px;
-    box-shadow:inset 0 0 30px rgba(0,0,0,.22),0 12px 26px rgba(74,32,22,.2)}
+  .foto-info{border-radius:14px;overflow:hidden;border:4px solid #fff;box-shadow:0 10px 24px rgba(10,51,35,.16);margin-top:12px}
+  .foto-info img{width:100%;height:auto}
+
+  /* regalos */
+  .clabe{background:var(--beige);border:1px dashed var(--moss);border-radius:14px;padding:14px 16px;margin-top:14px;text-align:left}
+  .clabe .row{margin:4px 0;font-size:14px}
+  .clabe .k{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--midnight)}
+  .clabe .num{font-weight:700;color:var(--verde);letter-spacing:.04em;font-size:17px}
+  .copiado{color:var(--moss);font-weight:700;font-size:13px;margin-left:8px;display:none}
+  .copiado.show{display:inline}
+
+  .corcho{background:url('img/corcho.jpg') center/cover,#c99a5b;border-radius:12px;padding:20px 14px;min-height:240px;box-shadow:inset 0 0 30px rgba(0,0,0,.22),0 12px 26px rgba(10,51,35,.18)}
   .notas{column-count:2;column-gap:12px}
   @media(min-width:520px){.notas{column-count:3}}
-  .nota{break-inside:avoid;margin:0 0 12px;padding:12px 12px 16px;border-radius:3px;position:relative;font-family:var(--display);font-weight:500;font-size:15px;color:#4a3a12;line-height:1.3;box-shadow:0 6px 12px rgba(0,0,0,.3);transform:rotate(var(--r,-1.5deg))}
-  .nota:nth-child(3n){--r:1.6deg;background:#fff7cf} .nota:nth-child(3n+1){--r:-2deg;background:#ffe4ec} .nota:nth-child(3n+2){--r:1deg;background:#e3f0d4}
-  .nota .pin{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--sienna);box-shadow:0 2px 3px rgba(0,0,0,.4)}
-  .nota .lock{font-family:var(--util);font-size:9px;color:#a05a00;display:block;margin-top:4px;letter-spacing:.04em}
-  .nota .who{display:block;margin-top:6px;font-family:var(--util);font-size:10px;color:#7a6a3a;text-transform:uppercase;letter-spacing:.05em}
-  .nota .del{position:absolute;bottom:2px;right:7px;font-family:var(--util);font-size:10px;color:#a00;cursor:pointer;opacity:.6}
-  .nota .del:hover{opacity:1}
+  .nota{break-inside:avoid;margin:0 0 12px;padding:12px 12px 16px;border-radius:3px;position:relative;font-weight:500;font-size:15px;color:#4a3a12;line-height:1.3;box-shadow:0 6px 12px rgba(0,0,0,.3);transform:rotate(var(--r,-1.5deg))}
+  .nota:nth-child(3n){--r:1.6deg;background:#fff7cf}.nota:nth-child(3n+1){--r:-2deg;background:#f6e2d8}.nota:nth-child(3n+2){--r:1deg;background:#e3f0d4}
+  .nota .pin{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--rosy);box-shadow:0 2px 3px rgba(0,0,0,.4)}
+  .nota .lock{font-size:9px;font-weight:600;color:#8a5a2b;display:block;margin-top:4px;letter-spacing:.04em}
+  .nota .who{display:block;margin-top:6px;font-size:10px;font-weight:600;color:#7a6a3a;text-transform:uppercase;letter-spacing:.05em}
+  .nota .del{position:absolute;bottom:2px;right:7px;font-size:10px;color:#a00;cursor:pointer;opacity:.6}.nota .del:hover{opacity:1}
 
   .field{margin:10px 0}
-  .field label{display:block;font-family:var(--util);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--crimson);margin-bottom:4px}
-  .field input,.field textarea,.field select{width:100%;padding:11px 12px;border-radius:12px;border:1.5px solid var(--linea);background:#fff;font-family:var(--texto);font-size:15px;color:var(--tinta)}
-  .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--sienna);border-color:var(--sienna)}
-  .check{display:flex;align-items:center;gap:9px;margin:6px 0 2px;font-family:var(--texto);font-size:14px;color:var(--tinta)}
-  .check input{width:18px;height:18px;accent-color:var(--sienna)}
+  .field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--verde);margin-bottom:4px}
+  .field input,.field textarea,.field select{width:100%;padding:11px 12px;border-radius:12px;border:1.5px solid var(--linea);background:#fff;font-family:var(--ff);font-size:15px;color:var(--tinta)}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--midnight);border-color:var(--midnight)}
+  .check{display:flex;align-items:center;gap:9px;margin:6px 0 2px;font-size:14px;color:var(--tinta)}
+  .check input{width:18px;height:18px;accent-color:var(--midnight)}
   .ok{background:#e3f0d4;border-radius:12px;padding:10px 12px;color:#3f5a1e;font-weight:600;margin-top:10px;display:none}
   .ok.show{display:block}
-  .spot{border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(74,32,22,.16);margin-bottom:14px}
+  .spot{border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(10,51,35,.14);margin-bottom:14px}
   ul.lista{list-style:none;padding:0;margin:14px 0 0}
   ul.lista li{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:9px 13px;margin-bottom:7px}
-  footer{text-align:center;color:rgba(74,32,22,.5);font-family:var(--util);font-size:10px;letter-spacing:.08em;padding:18px 0 6px}
+  footer{text-align:center;color:rgba(34,48,42,.5);font-size:10px;font-weight:600;letter-spacing:.08em;padding:18px 0 6px}
 </style>
 </head>
 <body data-p="inicio">
@@ -162,6 +167,7 @@
     <button data-go="historia">Nuestra historia</button>
     <button data-go="llegar">Cómo llegar</button>
     <button data-go="vestuario">Vestuario</button>
+    <button data-go="regalos">Regalos</button>
     <button data-go="playlist">Playlist</button>
     <button data-go="deseos">Deseos</button>
     <button data-go="rsvp">Confirmar</button>
@@ -182,13 +188,22 @@
         <button class="btn mag" id="btnCal">＋ Añadir al calendario</button>
         <a class="btn line" id="btnWa" href="#" target="_blank" rel="noopener">Dudas por WhatsApp</a>
       </div>
+      <div class="dia">
+        <div class="th">El día</div>
+        <ul>
+          <li><span class="hora">12:30</span><span class="qq">Llegada de todos</span></li>
+          <li><span class="hora">1:00 pm</span><span class="qq">Boda civil</span></li>
+          <li><span class="hora">2:00 pm</span><span class="qq">Brindis</span></li>
+          <li><span class="hora">2:30 pm</span><span class="qq">Comida</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="pantalla" id="historia">
     <div class="eyebrow">Cómo empezó todo</div>
     <h2>Nuestra historia</h2>
-    <p class="lead">Un camino contado en fotos — algunas todavía por llegar.</p>
+    <p class="lead">Un camino contado en fotos — y sigue creciendo.</p>
     <div class="album" id="album"></div>
   </section>
 
@@ -198,13 +213,14 @@
     <div class="card">
       <span class="tag azul">Ubicación</span>
       <h3>El lugar</h3>
-      <p id="lugarInfo">Paty va a enviar la ubicación exacta para que el botón abra directo en Google Maps.</p>
-      <a class="btn mag" id="btnMaps" href="#" target="_blank" rel="noopener" style="pointer-events:none;opacity:.45">Abrir en Google Maps</a>
+      <p id="lugarInfo">Carretera Antigua Coatepec–Xalapa km 2.36, Col. San Jacinto, Loc. La Calera. Coatepec, Ver. Entre el Fraccionamiento Pixquiac y la salida a La Calera.</p>
+      <a class="btn mag" id="btnMaps" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a>
     </div>
     <div class="card">
-      <span class="tag rojo">Estacionamiento</span>
+      <span class="tag rosa">Estacionamiento</span>
       <h3>Dónde dejar el coche</h3>
       <p>Se pueden estacionar por donde se entra a <b>San Jacinto</b>, hacia <b>La Calera</b>. Hay lugar de sobra por esa zona.</p>
+      <div class="foto-info"><img src="img/estac.jpg" alt="Mapa de dónde estacionarse" loading="lazy"></div>
     </div>
   </section>
 
@@ -212,9 +228,24 @@
     <div class="eyebrow">Cómo vestir</div>
     <h2>Vestuario</h2>
     <div class="card" style="text-align:center">
-      <span class="tag rosa" style="margin:0 auto 10px">Código de vestimenta</span>
-      <h3 style="color:var(--sienna);font-size:24px">Formal cómodo</h3>
+      <span class="tag" style="margin:0 auto 10px">Código de vestimenta</span>
+      <h3 style="color:var(--midnight);font-size:24px">Formal cómodo</h3>
       <p>Queremos que todas y todos se sientan <b>guapas y guapos</b>, y a gusto para bailar toda la noche.</p>
+    </div>
+  </section>
+
+  <section class="pantalla" id="regalos">
+    <div class="eyebrow">Un detalle</div>
+    <h2>Regalos</h2>
+    <div class="card">
+      <p>Su presencia es, de verdad, el mejor regalo. <b>No habrá mesa de regalos.</b></p>
+      <p>Si además quieren consentirlos, lo que más ilusión les hace es ayudarles a arrancar su <b>luna de miel</b>. Pueden hacer una transferencia, o si prefieren, llevar su detalle el mismo día de la boda. 💛</p>
+      <div class="clabe">
+        <div class="row"><span class="k">A nombre de</span><br><b>Patricia Amelia Ivison Mata</b></div>
+        <div class="row"><span class="k">Banco</span><br>Banamex</div>
+        <div class="row"><span class="k">CLABE interbancaria</span><br><span class="num" id="clabe">002840902203729431</span></div>
+      </div>
+      <button class="btn oli" id="btnClabe" style="margin-top:12px">Copiar CLABE</button><span class="copiado" id="clabeOk">¡Copiada!</span>
     </div>
   </section>
 
@@ -266,61 +297,56 @@
 
 </div>
 
-<footer>Hecho con cariño para Paty &amp; Arturo · <span id="ver">v4</span></footer>
+<footer>Hecho con cariño para Paty &amp; Arturo · <span id="ver">v5</span></footer>
 
 <script>
 /* ============================================================
    CONFIGURACIÓN — Paty edita solo esta parte
    ============================================================ */
 const CFG = {
-  fecha:      "2027-08-15T17:00:00",   // ⚠️ Puse año 2027 — CONFÍRMAME el año. Formato AAAA-MM-DDTHH:MM:00
+  fecha:      "2027-08-15T12:30:00",   // ⚠️ Puse año 2027 — CONFÍRMAME el año. Formato AAAA-MM-DDTHH:MM:00
   fechaTexto: "15 de agosto de 2027",
-  lugar:      "",                      // nombre del lugar (opcional)
-  mapsUrl:    "",                      // link de Google Maps cuando lo tengas
+  lugar:      "San Jacinto · La Calera, Coatepec, Ver.",
+  direccion:  "Carretera Antigua Coatepec-Xalapa km 2.36, Col. San Jacinto, La Calera, Coatepec, Veracruz",
+  mapsUrl:    "",                      // si pones un link exacto de Maps, se usa ese; si no, se arma con la dirección
   whatsapp:   "",                      // número de dudas, ej "5215512345678" (sin + ni espacios)
   spotifyEmbed:"https://open.spotify.com/embed/playlist/4KveQ45ljf3kTeHT4TdKAv?utm_source=generator",
   playlistUrl:"https://open.spotify.com/playlist/4KveQ45ljf3kTeHT4TdKAv",
   api:        "",                      // URL /exec del Apps Script. Vacío = modo local
-  pin:        "1414"                   // clave del panel de los novios
+  pin:        "1414"
 };
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-$("#ver").textContent="v4";
+$("#ver").textContent="v5";
 
-function go(id){
-  $$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));
-  $$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));
-  document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});
-}
+function go(id){$$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));$$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});}
 $$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
 $("#fecha").textContent=CFG.fechaTexto||"Por confirmar";
 if(CFG.lugar)$("#lugar").textContent=CFG.lugar;
-function tick(){
-  const t=new Date(CFG.fecha)-new Date(), c=$("#count");
+function tick(){const t=new Date(CFG.fecha)-new Date(),c=$("#count");
   if(isNaN(t)||t<0){c.innerHTML="<div><b>¡Hoy!</b><span>es el día</span></div>";return;}
   const d=Math.floor(t/864e5),h=Math.floor(t%864e5/36e5),m=Math.floor(t%36e5/6e4),s=Math.floor(t%6e4/1e3);
   const cell=(n,l)=>`<div><b>${n}</b><span>${l}</span></div>`;
-  c.innerHTML=cell(d,"días")+cell(h,"horas")+cell(m,"min")+cell(s,"seg");
-}
+  c.innerHTML=cell(d,"días")+cell(h,"horas")+cell(m,"min")+cell(s,"seg");}
 tick();setInterval(tick,1000);
-$("#btnCal").onclick=()=>{
-  const start=new Date(CFG.fecha), end=new Date(start.getTime()+5*36e5);
+$("#btnCal").onclick=()=>{const start=new Date(CFG.fecha),end=new Date(start.getTime()+4*36e5);
   const fmt=x=>x.toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
-  const ics=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","SUMMARY:Boda de Paty y Arturo",
-    "DTSTART:"+fmt(start),"DTEND:"+fmt(end),CFG.lugar?("LOCATION:"+CFG.lugar):"","END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
-  const a=document.createElement("a");a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);a.download="boda-paty-arturo.ics";a.click();
-};
-if(CFG.whatsapp){$("#btnWa").href="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent("¡Hola! Tengo una duda sobre la boda de Paty y Arturo 💍");}
-else{$("#btnWa").style.display="none";}
-if(CFG.mapsUrl){const m=$("#btnMaps");m.href=CFG.mapsUrl;m.style.pointerEvents="auto";m.style.opacity="1";$("#lugarInfo").textContent=CFG.lugar||"Toca el botón para abrir la ubicación en Google Maps.";}
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","SUMMARY:Boda de Paty y Arturo","DTSTART:"+fmt(start),"DTEND:"+fmt(end),CFG.lugar?("LOCATION:"+CFG.lugar):"","END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
+  const a=document.createElement("a");a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);a.download="boda-paty-arturo.ics";a.click();};
+if(CFG.whatsapp){$("#btnWa").href="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent("¡Hola! Tengo una duda sobre la boda de Paty y Arturo 💍");}else{$("#btnWa").style.display="none";}
+const mapsHref=CFG.mapsUrl||(CFG.direccion?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(CFG.direccion):"");
+if(mapsHref)$("#btnMaps").href=mapsHref; else {$("#btnMaps").style.pointerEvents="none";$("#btnMaps").style.opacity=".45";}
 
+/* copiar CLABE */
+$("#btnClabe").onclick=async()=>{try{await navigator.clipboard.writeText($("#clabe").textContent.trim());}catch(e){}
+  $("#clabeOk").classList.add("show");setTimeout(()=>$("#clabeOk").classList.remove("show"),2000);};
+
+/* HISTORIA — narrador impersonal. Capítulos con varias fotos = título arriba, fotos en su forma real */
 const H=[
- {duo:["img/foto-01a.jpg","img/foto-01b.jpg"],
-  cap:"Todo empezó una tarde en que él la vio tocar con RagaSon. Y como los dos son bien \u201cmodernos\u201d, unos meses después llegó una solicitud de amistad por Facebook."},
- {img:"img/foto-02.jpg",
-  cap:"Al principio ella no recordaba quién era. Pero en enero de 2014, husmeando entre las solicitudes, una foto le llamó la atención: Arturo había cambiado la suya por esta. En febrero tuvieron su primera cita… que salió muy bien."},
+ {duo:["img/foto-01a.jpg","img/foto-01b.jpg"],cap:"Todo empezó una tarde en que él la vio tocar con RagaSon. Y como los dos son bien \u201cmodernos\u201d, unos meses después llegó una solicitud de amistad por Facebook."},
+ {img:"img/foto-02.jpg",cap:"Al principio ella no recordaba quién era. Pero en enero de 2014, husmeando entre las solicitudes, una foto le llamó la atención: Arturo había cambiado la suya por esta. En febrero tuvieron su primera cita… que salió muy bien."},
  {img:"img/foto-03.jpg",cap:"Un par de semanas después, él fue a verla cantar y contar un cuento con la OSX. Bueno… fue porque ella lo invitó."},
  {note:"A partir de ahí empezaron a salir y, sin mucho trámite, se hicieron novios oficialmente el 14 de marzo de 2014 — que, mira tú, coincide con el día del número pi. Así arrancó una historia hecha de días juntos y días en familia."},
  {vacio:true,cap:"La primera vez que cocinaron juntos."},
@@ -334,17 +360,26 @@ const H=[
  {img:"img/foto-12.jpg",cap:"La primera Navidad con la mamá de Paty."},
  {img:"img/foto-13.jpg",cap:"Cocinando juntos en la casa de Campo Viejo, cuando se fueron a vivir juntos."},
  {img:"img/foto-14.jpg",cap:"El día que fueron a una boda en Tlacotalpan."},
- {img:"img/foto-15.jpg",cap:"Día de Muertos en el trabajo de Arturo."}
+ {img:"img/foto-15.jpg",cap:"Día de Muertos en el trabajo de Arturo."},
+ {grupo:["img/foto-16.jpg","img/foto-17.jpg","img/foto-18.jpg","img/foto-19.jpg","img/foto-20.jpg","img/foto-21.jpg"],cap:"Caminatas y viajes en pandemia"},
+ {grupo:["img/foto-22.jpg","img/foto-23.jpg"],cap:"Los inicios de Casa Otilia"},
+ {grupo:["img/foto-24.jpg"],cap:"La casa del río, en Consolapa"},
+ {grupo:["img/foto-25.jpg","img/foto-26.jpg"],cap:"La primera Navidad en su casa"},
+ {grupo:["img/foto-27.jpg","img/foto-28.jpg","img/foto-29.jpg"],cap:"Un viaje romántico a la playa y a Jicaltepec"},
+ {grupo:["img/foto-30.jpg","img/foto-31.jpg","img/foto-32.jpg","img/foto-33.jpg"],cap:"La boda de Artu y Gaby, y disfrutando de la casa"}
 ];
 $("#album").innerHTML=H.map(it=>{
   if(it.note)return `<div class="interludio">${it.note}</div>`;
   if(it.vacio)return `<div class="polaroid vacio"><div class="hueco">Foto por llegar</div><div class="cap">${it.cap}</div></div>`;
   if(it.duo)return `<div class="duo">${it.duo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div><div class="duo-cap">${it.cap}</div>`;
+  if(it.grupo){
+    if(it.grupo.length===1)return `<div class="polaroid"><img loading="lazy" src="${it.grupo[0]}" alt=""><div class="cap">${it.cap}</div></div>`;
+    return `<div class="grupo"><div class="cap-grupo">${it.cap}</div><div class="cluster">${it.grupo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div></div>`;
+  }
   return `<div class="polaroid"><img loading="lazy" src="${it.img}" alt=""><div class="cap">${it.cap}</div></div>`;
 }).join("");
 
-if(CFG.spotifyEmbed){$("#spotWrap").style.display="block";
-  $("#spotWrap").innerHTML=`<iframe style="border-radius:14px" src="${CFG.spotifyEmbed}" width="100%" height="352" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>`;}
+if(CFG.spotifyEmbed){$("#spotWrap").style.display="block";$("#spotWrap").innerHTML=`<iframe style="border-radius:14px" src="${CFG.spotifyEmbed}" width="100%" height="352" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>`;}
 if(CFG.playlistUrl){const p=$("#btnPlay");p.href=CFG.playlistUrl;p.style.display="inline-flex";}
 
 function local(t){try{return JSON.parse(localStorage.getItem("pa_"+t)||"[]");}catch(e){return[];}}
@@ -356,18 +391,10 @@ const store={
 const myId=localStorage.getItem("pa_me")||(()=>{const x=Math.random().toString(36).slice(2);localStorage.setItem("pa_me",x);return x;})();
 
 function esPriv(n){return n.privado===true||n.privado==="true"||n.privado===1||n.privado==="1"||n.privado==="TRUE";}
-async function pintaDeseos(){
-  const d=(await store.get("deseos")).filter(n=>!esPriv(n)||n.me===myId);
-  $("#notas").innerHTML=d.length?d.map(n=>`<div class="nota"><span class="pin"></span>${esc(n.texto)}
-    ${esPriv(n)?`<span class="lock">🔒 solo Paty y Arturo</span>`:""}
-    <span class="who">— ${esc(n.autor||"Anónimo")}</span>
-    ${n.me===myId?`<span class="del" data-id="${n.id}">borrar</span>`:""}</div>`).join(""):
-    `<p style="color:#5b4416;font-family:var(--display);width:100%;text-align:center">Sé el primero en dejar un deseo…</p>`;
-  $$("#notas .del").forEach(b=>b.onclick=async()=>{await store.del("deseos",b.dataset.id);pintaDeseos();});
-}
-$("#btnWish").onclick=async()=>{const t=$("#wishTxt").value.trim();if(!t)return;
-  await store.add("deseos",{texto:t,autor:$("#wishBy").value.trim(),privado:$("#wishPriv").checked,me:myId});
-  $("#wishTxt").value="";$("#wishBy").value="";$("#wishPriv").checked=false;pintaDeseos();};
+async function pintaDeseos(){const d=(await store.get("deseos")).filter(n=>!esPriv(n)||n.me===myId);
+  $("#notas").innerHTML=d.length?d.map(n=>`<div class="nota"><span class="pin"></span>${esc(n.texto)}${esPriv(n)?`<span class="lock">🔒 solo Paty y Arturo</span>`:""}<span class="who">— ${esc(n.autor||"Anónimo")}</span>${n.me===myId?`<span class="del" data-id="${n.id}">borrar</span>`:""}</div>`).join(""):`<p style="color:#5b4416;font-weight:600;width:100%;text-align:center">Sé el primero en dejar un deseo…</p>`;
+  $$("#notas .del").forEach(b=>b.onclick=async()=>{await store.del("deseos",b.dataset.id);pintaDeseos();});}
+$("#btnWish").onclick=async()=>{const t=$("#wishTxt").value.trim();if(!t)return;await store.add("deseos",{texto:t,autor:$("#wishBy").value.trim(),privado:$("#wishPriv").checked,me:myId});$("#wishTxt").value="";$("#wishBy").value="";$("#wishPriv").checked=false;pintaDeseos();};
 pintaDeseos();
 
 async function pintaSongs(){const s=await store.get("canciones");$("#songList").innerHTML=s.map(x=>`<li><b>${esc(x.cancion)}</b>${x.autor?` <span style="opacity:.7;font-size:14px">· ${esc(x.autor)}</span>`:""}</li>`).join("");}
