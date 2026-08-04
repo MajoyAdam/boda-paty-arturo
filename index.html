@@ -226,7 +226,7 @@
     <div class="card" style="text-align:center">
       <span class="tag ocre" style="margin:0 auto 10px">Código de vestimenta</span>
       <h3 style="color:var(--olive);font-size:24px">Formal cómodo</h3>
-      <p>Queremos que todas y todos se sientan <b>guapas y guapos</b>, y a gusto para bailar toda la noche.</p>
+      <p>Queremos que todas y todos se sientan <b>guapas y guapos</b>, y a gusto para bailar toda la tarde.</p>
     </div>
   </section>
 
@@ -288,8 +288,12 @@
         <select id="rGo"><option value="">Elige una opción</option>
           <option value="Sí, ahí estaré">Sí, ahí estaré 🎉</option>
           <option value="No podré">No podré esta vez 💔</option></select></div>
-      <div class="field"><label for="rNum">¿Cuántas personas en total? (contándote)</label><input id="rNum" type="number" min="1" value="1"></div>
-      <div class="field"><label for="rMsg">Alergias, dieta o algún mensaje</label><textarea id="rMsg" rows="2" placeholder="Opcional"></textarea></div>
+      <div class="field"><label for="rMenu">Preferencia de menú</label>
+        <select id="rMenu"><option value="">Elige una opción</option>
+          <option value="Con proteína animal">Con proteína animal</option>
+          <option value="Vegetariano">Vegetariano</option></select></div>
+      <div class="field"><label for="rAlerg">¿Alguna alergia alimentaria?</label><input id="rAlerg" placeholder="Opcional"></div>
+      <div class="field"><label for="rMsg">Algún mensaje</label><textarea id="rMsg" rows="2" placeholder="Opcional"></textarea></div>
       <button class="btn mag" id="btnRsvp">Enviar confirmación</button>
       <div class="ok" id="rsvpOk">¡Gracias! Tu respuesta quedó registrada 💌</div>
     </div>
@@ -319,7 +323,7 @@ const CFG = {
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-$("#ver").textContent="v6";
+$("#ver").textContent="v9";
 function go(id){$$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));$$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});}
 $$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
@@ -331,10 +335,21 @@ function tick(){const t=new Date(CFG.fecha)-new Date(),c=$("#count");
   const cell=(n,l)=>`<div><b>${n}</b><span>${l}</span></div>`;
   c.innerHTML=cell(d,"días")+cell(h,"horas")+cell(m,"min")+cell(s,"seg");}
 tick();setInterval(tick,1000);
-$("#btnCal").onclick=()=>{const start=new Date(CFG.fecha),end=new Date(start.getTime()+4*36e5);
+$("#btnCal").onclick=()=>{
+  const start=new Date(CFG.fecha), end=new Date(start.getTime()+4*36e5);
   const fmt=x=>x.toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
-  const ics=["BEGIN:VCALENDAR","VERSION:2.0","BEGIN:VEVENT","SUMMARY:Boda de Arturo y Paty","DTSTART:"+fmt(start),"DTEND:"+fmt(end),CFG.lugar?("LOCATION:"+CFG.lugar):"","END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
-  const a=document.createElement("a");a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(ics);a.download="boda-arturo-paty.ics";a.click();};
+  const esc=s=>String(s).replace(/[,;]/g,m=>"\\"+m);
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//ArturoyPaty//ES//","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+    "BEGIN:VEVENT","UID:boda-arturo-paty-20260815@invitacion","DTSTAMP:"+fmt(new Date()),
+    "DTSTART:"+fmt(start),"DTEND:"+fmt(end),"SUMMARY:Boda de Arturo y Paty",
+    CFG.lugar?("LOCATION:"+esc(CFG.lugar)):"","DESCRIPTION:\u00a1Nos casamos! Te esperamos.",
+    "END:VEVENT","END:VCALENDAR"].filter(Boolean).join("\r\n");
+  const blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download="boda-arturo-paty.ics";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+};
 if(CFG.whatsapp){$("#btnWa").href="https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent("¡Hola! Tengo una duda sobre la boda de Arturo y Paty 💍");}else{$("#btnWa").style.display="none";}
 const mapsHref=CFG.mapsUrl||(CFG.direccion?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(CFG.direccion):"");
 if(mapsHref)$("#btnMaps").href=mapsHref; else {$("#btnMaps").style.pointerEvents="none";$("#btnMaps").style.opacity=".45";}
@@ -345,6 +360,7 @@ $$(".btn-clabe").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.wr
 
 /* HISTORIA — narrador impersonal; capítulos con varias fotos = título arriba, fotos en su forma real */
 const H=[
+ {duo:["img/foto-k1.jpg","img/foto-k2.jpg"],cap:"Estos dos niños nunca imaginaron que se iban a encontrar."},
  {duo:["img/foto-01a.jpg","img/foto-01b.jpg"],cap:"Todo empezó una tarde en que él la vio tocar con RagaSon. Y como los dos son bien \u201cmodernos\u201d, unos meses después llegó una solicitud de amistad por Facebook."},
  {img:"img/foto-02.jpg",cap:"Al principio ella no recordaba quién era. Pero en enero de 2014, husmeando entre las solicitudes, una foto le llamó la atención: Arturo había cambiado la suya por esta. En febrero tuvieron su primera cita… que salió muy bien."},
  {img:"img/foto-03.jpg",cap:"Un par de semanas después, él fue a verla cantar y contar un cuento con la OSX. Bueno… fue porque ella lo invitó."},
@@ -360,7 +376,7 @@ const H=[
  {img:"img/foto-12.jpg",cap:"La primera Navidad con la mamá de Paty."},
  {img:"img/foto-13.jpg",cap:"Cocinando juntos en la casa de Campo Viejo, cuando se fueron a vivir juntos."},
  {img:"img/foto-14.jpg",cap:"El día que fueron a una boda en Tlacotalpan."},
- {img:"img/foto-15.jpg",cap:"Día de Muertos en el trabajo de Arturo."},
+ {img:"img/foto-15.jpg",cap:"Día de Muertos en Tierra Luna, el lugar donde se conocieron."},
  {grupo:["img/foto-16.jpg","img/foto-17.jpg","img/foto-18.jpg","img/foto-19.jpg","img/foto-20.jpg","img/foto-21.jpg"],cap:"Caminatas y viajes en pandemia"},
  {grupo:["img/foto-22.jpg","img/foto-23.jpg"],cap:"Los inicios de Casa Otilia"},
  {grupo:["img/foto-24.jpg"],cap:"La casa del río, en Consolapa"},
@@ -369,7 +385,8 @@ const H=[
  {grupo:["img/foto-30.jpg","img/foto-31.jpg","img/foto-32.jpg","img/foto-33.jpg"],cap:"La boda de Artu y Gaby, y disfrutando de la casa"},
  {grupo:["img/foto-34.jpg","img/foto-35.jpg","img/foto-36.jpg","img/foto-37.jpg","img/foto-38.jpg"],cap:"Vida cotidiana y nietos"},
  {grupo:["img/foto-39.jpg","img/foto-40.jpg"],cap:"El amor bonito"},
- {grupo:["img/foto-41.jpg","img/foto-42.jpg","img/foto-43.jpg","img/foto-44.jpg","img/foto-45.jpg"],cap:"Loqueras, viajes y esto que somos"}
+ {grupo:["img/foto-41.jpg","img/foto-42.jpg","img/foto-43.jpg","img/foto-44.jpg","img/foto-45.jpg","img/foto-46.jpg","img/foto-47.jpg","img/foto-48.jpg","img/foto-49.jpg","img/foto-50.jpg","img/foto-51.jpg","img/foto-52.jpg","img/foto-53.jpg","img/foto-54.jpg","img/foto-55.jpg","img/foto-56.jpg","img/foto-57.jpg","img/foto-58.jpg","img/foto-59.jpg","img/foto-60.jpg","img/foto-61.jpg","img/foto-62.jpg","img/foto-63.jpg","img/foto-64.jpg","img/foto-65.jpg"],cap:"Loqueras, viajes y esto que somos"},
+ {grupo:["img/foto-66.jpg","img/foto-67.jpg"],cap:"Esto que somos ahora"}
 ];
 $("#album").innerHTML=H.map(it=>{
   if(it.note)return `<div class="interludio">${it.note}</div>`;
@@ -404,14 +421,14 @@ async function pintaSongs(){const s=await store.get("canciones");$("#songList").
 $("#btnSong").onclick=async()=>{const c=$("#songName").value.trim();if(!c)return;await store.add("canciones",{cancion:c,autor:$("#songBy").value.trim()});$("#songName").value="";$("#songBy").value="";$("#songOk").classList.add("show");setTimeout(()=>$("#songOk").classList.remove("show"),2500);pintaSongs();};
 pintaSongs();
 
-$("#btnRsvp").onclick=async()=>{const n=$("#rName").value.trim(),g=$("#rGo").value;if(!n||!g){alert("Pon tu nombre y si nos acompañas 🙏");return;}await store.add("rsvp",{nombre:n,asiste:g,personas:$("#rNum").value,mensaje:$("#rMsg").value.trim()});$("#rsvpOk").classList.add("show");$("#rName").value="";$("#rGo").value="";$("#rNum").value=1;$("#rMsg").value="";};
+$("#btnRsvp").onclick=async()=>{const n=$("#rName").value.trim(),g=$("#rGo").value;if(!n||!g){alert("Pon tu nombre y si nos acompañas 🙏");return;}await store.add("rsvp",{nombre:n,asiste:g,menu:$("#rMenu").value,alergias:$("#rAlerg").value.trim(),mensaje:$("#rMsg").value.trim()});$("#rsvpOk").classList.add("show");$("#rName").value="";$("#rGo").value="";$("#rMenu").value="";$("#rAlerg").value="";$("#rMsg").value="";};
 
 $("#btnPanel").onclick=async()=>{const p=prompt("Clave de los novios:");if(p===null)return;if(p!==CFG.pin){alert("Clave incorrecta");return;}
-  const r=await store.get("rsvp");const si=r.filter(x=>/^Sí/.test(x.asiste)).reduce((a,x)=>a+(+x.personas||1),0);
+  const r=await store.get("rsvp");const si=r.filter(x=>/^Sí/.test(x.asiste)).length;
   const priv=(await store.get("deseos")).filter(esPriv);
-  const rtxt=r.length?r.map(x=>`• ${x.nombre} — ${x.asiste} (${x.personas}) ${x.mensaje?"· "+x.mensaje:""}`).join("\n"):"Aún no hay confirmaciones.";
+  const rtxt=r.length?r.map(x=>`• ${x.nombre} — ${x.asiste}${x.menu?" · "+x.menu:""}${x.alergias?" · alergias: "+x.alergias:""}${x.mensaje?" · "+x.mensaje:""}`).join("\n"):"Aún no hay confirmaciones.";
   const ptxt=priv.length?priv.map(x=>`🔒 ${x.texto} — ${x.autor||"Anónimo"}`).join("\n"):"Sin mensajes privados.";
-  alert(`CONFIRMACIONES (${r.length})\nPersonas que asisten: ${si}\n\n${rtxt}\n\n— — —\nDESEOS PRIVADOS\n${ptxt}`);};
+  alert(`CONFIRMACIONES (${r.length})\nConfirmados que asisten: ${si}\n\n${rtxt}\n\n— — —\nDESEOS PRIVADOS\n${ptxt}`);};
 
 function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}
