@@ -25,7 +25,14 @@ function readAll(name){
   return v.map(r => { const o = {}; head.forEach((h,i)=>o[h]=r[i]); return o; });
 }
 
-function doGet(){
+function doGet(e){
+  // Prueba rápida: abrir la liga con /exec?test=1 escribe una fila de prueba en rsvp
+  if(e && e.parameter && e.parameter.test){
+    const sh = sheetFor("rsvp");
+    sh.appendRow([Utilities.getUuid(),"PRUEBA","Sí, ahí estaré","Vegetariano","ninguna","fila de prueba",new Date()]);
+    return ContentService.createTextOutput(JSON.stringify({ok:true, msg:"fila de prueba agregada a rsvp"}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
   const out = { deseos:readAll("deseos"), canciones:readAll("canciones"), rsvp:readAll("rsvp") };
   return ContentService.createTextOutput(JSON.stringify(out))
     .setMimeType(ContentService.MimeType.JSON);

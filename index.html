@@ -317,13 +317,13 @@ const CFG = {
   whatsapp:   "",
   spotifyEmbed:"https://open.spotify.com/embed/playlist/4KveQ45ljf3kTeHT4TdKAv?utm_source=generator",
   playlistUrl:"https://open.spotify.com/playlist/4KveQ45ljf3kTeHT4TdKAv",
-  api:        "https://script.google.com/macros/s/AKfycbwz7ZTcpI2YJ0_9ff1gVMU44TfAXanWdcTfihyUvSjBy5ntA9sPamN0DrqOgQE7OApc/exec",
+  api:        "https://script.google.com/macros/s/AKfycbz-26reSOprjaRhh_VCZ5E_EQiqT7aTec7dPs7V1Jd5PxXk3nJA99L6A2081QAETq_H/exec",
   pin:        "1414"
 };
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-$("#ver").textContent="v10";
+$("#ver").textContent="v11";
 function go(id){$$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));$$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});}
 $$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
