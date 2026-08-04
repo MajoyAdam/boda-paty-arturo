@@ -97,7 +97,7 @@
   .cluster .polaroid{width:calc(50% - 8px);min-width:135px;transform:rotate(var(--rot,-2deg))}
   .cluster .polaroid:nth-child(even){--rot:2.5deg}.cluster .polaroid:nth-child(3n){--rot:-2deg}
   .cluster.col1{flex-direction:column;align-items:center;gap:22px}
-  .cluster.col1 .polaroid{width:min(320px,92%)}
+  .cluster.col1 .polaroid{width:min(360px,94%)}
   .interludio{background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--blush);border-radius:14px;padding:16px 18px;width:min(370px,94%);text-align:center;font-weight:500;color:var(--blood);font-size:16px;line-height:1.35;box-shadow:0 8px 18px rgba(58,36,24,.08)}
   .polaroid.vacio .hueco{width:100%;aspect-ratio:1/1;border:2px dashed var(--ocre);border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ocre);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px}
 
@@ -325,7 +325,7 @@ const CFG = {
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-$("#ver").textContent="v12";
+$("#ver").textContent="v13";
 function go(id){$$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));$$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});}
 $$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
@@ -387,8 +387,8 @@ const H=[
  {grupo:["img/foto-30.jpg","img/foto-31.jpg","img/foto-32.jpg","img/foto-33.jpg"],cap:"La boda de Artu y Gaby, y disfrutando de la casa"},
  {grupo:["img/foto-34.jpg","img/foto-35.jpg","img/foto-36.jpg","img/foto-37.jpg","img/foto-38.jpg"],cap:"Vida cotidiana y nietos"},
  {grupo:["img/foto-39.jpg","img/foto-40.jpg"],cap:"El amor bonito"},
- {grupo:["img/foto-41.jpg","img/foto-42.jpg","img/foto-43.jpg","img/foto-44.jpg","img/foto-45.jpg","img/foto-46.jpg","img/foto-47.jpg","img/foto-48.jpg","img/foto-49.jpg","img/foto-50.jpg","img/foto-51.jpg","img/foto-52.jpg","img/foto-53.jpg","img/foto-54.jpg","img/foto-55.jpg","img/foto-56.jpg","img/foto-57.jpg","img/foto-58.jpg","img/foto-59.jpg","img/foto-60.jpg","img/foto-61.jpg","img/foto-62.jpg","img/foto-63.jpg","img/foto-64.jpg","img/foto-65.jpg"],cap:"Loqueras, viajes y esto que somos"},
- {grupo:["img/foto-66.jpg","img/foto-67.jpg"],col1:true,cap:"Esto que somos ahora"}
+ {grupo:["img/foto-41.jpg","img/foto-42.jpg","img/foto-43.jpg","img/foto-44.jpg","img/foto-45.jpg","img/foto-46.jpg","img/foto-47.jpg","img/foto-48.jpg","img/foto-49.jpg","img/foto-50.jpg","img/foto-51.jpg","img/foto-52.jpg","img/foto-53.jpg","img/foto-54.jpg","img/foto-55.jpg","img/foto-56.jpg","img/foto-57.jpg","img/foto-58.jpg","img/foto-59.jpg","img/foto-60.jpg","img/foto-61.jpg","img/foto-62.jpg","img/foto-63.jpg","img/foto-64.jpg","img/foto-65.jpg","img/foto-66.jpg"],cap:"Loqueras, viajes y esto que somos"},
+ {grupo:["img/foto-67.jpg","img/foto-68.jpg"],col1:true}
 ];
 $("#album").innerHTML=H.map(it=>{
   if(it.note)return `<div class="interludio">${it.note}</div>`;
@@ -396,7 +396,7 @@ $("#album").innerHTML=H.map(it=>{
   if(it.duo)return `<div class="duo">${it.duo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div><div class="duo-cap">${it.cap}</div>`;
   if(it.grupo){
     if(it.grupo.length===1)return `<div class="polaroid"><img loading="lazy" src="${it.grupo[0]}" alt=""><div class="cap">${it.cap}</div></div>`;
-    return `<div class="grupo"><div class="cap-grupo">${it.cap}</div><div class="cluster${it.col1?" col1":""}">${it.grupo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div></div>`;
+    return `<div class="grupo">${it.cap?`<div class="cap-grupo">${it.cap}</div>`:""}<div class="cluster${it.col1?" col1":""}">${it.grupo.map(s=>`<div class="polaroid"><img loading="lazy" src="${s}" alt=""></div>`).join("")}</div></div>`;
   }
   return `<div class="polaroid"><img loading="lazy" src="${it.img}" alt=""><div class="cap">${it.cap}</div></div>`;
 }).join("");
