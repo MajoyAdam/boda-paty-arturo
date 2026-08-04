@@ -1,4 +1,4 @@
-const CACHE = "boda-pa-v14";
+const CACHE = "boda-pa-v15";
 const BASE = [
   "./","./index.html","./manifest.json",
   "./img/portada.png","./img/corcho.jpg",

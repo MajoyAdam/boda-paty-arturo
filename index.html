@@ -315,7 +315,7 @@ const CFG = {
   fechaTexto: "15 de agosto de 2026",
   lugar:      "San Jacinto · La Calera, Coatepec, Ver.",
   direccion:  "Carretera Antigua Coatepec-Xalapa km 2.36, Col. San Jacinto, La Calera, Coatepec, Veracruz",
-  mapsUrl:    "",
+  mapsUrl:    "https://www.google.com/maps/search/?api=1&query=19.483556,-96.947278",
   whatsapp:   "",
   spotifyEmbed:"https://open.spotify.com/embed/playlist/4KveQ45ljf3kTeHT4TdKAv?utm_source=generator",
   playlistUrl:"https://open.spotify.com/playlist/4KveQ45ljf3kTeHT4TdKAv",
@@ -325,7 +325,7 @@ const CFG = {
 /* ============================================================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-$("#ver").textContent="v14";
+$("#ver").textContent="v15";
 function go(id){$$(".pantalla").forEach(p=>p.classList.toggle("on",p.id===id));$$("#menu button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));document.body.dataset.p=id;window.scrollTo({top:0,behavior:"smooth"});}
 $$("#menu button").forEach(b=>b.onclick=()=>go(b.dataset.go));
 
